@@ -1,16 +1,15 @@
 package com.pupmod.model;
 
+/*
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import com.pupmod.entitys.stopEntity;
-import com.pupmod.entitys.gumpalanEntity;
 import net.minecraft.client.renderer.entity.model.EntityModel;
-import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.entity.Entity;
+import net.minecraft.client.renderer.model.ModelRenderer;*/
 
-public class ding extends EntityModel<stopEntity>{
+public class ding {//extends EntityModel<stopEntity>{
   //fields
-    ModelRenderer Shape1;
+ /*   ModelRenderer Shape1;
     ModelRenderer Shape2;
   
   public ding()
@@ -45,5 +44,5 @@ public class ding extends EntityModel<stopEntity>{
 @Override
 public void setupAnim(stopEntity p_225597_1_, float p_225597_2_, float p_225597_3_, float p_225597_4_,
 		float p_225597_5_, float p_225597_6_) {	
-	}
+	}*/
 }
