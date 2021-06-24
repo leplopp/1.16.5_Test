@@ -26,9 +26,6 @@
 "block.pupmod.schmumler_block_normal" : "Normaler schummler block zum nicht schummeln",
 "block.pupmod.kirchner_block_normal" : "Normaler Schniggi Block zum Normal gebrauch!",
 "block.pupmod.pink_teracotta" : "harter Pinker Ton",
-"key.pupmod.puptab" : "PupTAB",
-"key.category.puptab" : "PupTAB",
-"itemGroup.puptab" : "Mod Tab",
 "block.pupmod.kirchner_block" : "Schniggi Block",
 "block.pupmod.ledder_stone" : "Leiter Ins LIcht §3 zich ",
 "block.pupmod.puke_block" : "Kotzw                       ieeeee",
@@ -40,4 +37,7 @@
 "block.pupmod.pink_sand" : "Der Ton Im Pinken stilü✔👌!",
 "block.pupmod.eyeball" : "Der Mach AUGE BLOCK!!!",
 "block.pupmod.ball_obj" : "Pinker Ball  lul"
+
+"itemGroup.puptab" : "pup Blöcke",
+"itemGroup.puptab_item" : "pup Items",
 } 
