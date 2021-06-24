@@ -42,8 +42,7 @@ public class clientSetup {
         RenderTypeLookup.setRenderLayer(registerblocks.PINK_BLOCK_TROLL.get(), RenderType.translucent());
 
 	}
-	
-	  
+
 	@SubscribeEvent
     public static void onItemColor(ColorHandlerEvent.Item event) {
         event.getItemColors().register((stack, i) -> 0xC01394, Registeritems.NIGGI_EGG.get());
