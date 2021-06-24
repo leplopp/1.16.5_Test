@@ -113,8 +113,6 @@ public class pupmod {
 		pupEggs.initSpawnEggs();
 	}
 	
-
-	
 	public static ResourceLocation prefix(String name){return new ResourceLocation(MODID.toLowerCase(Locale.ROOT), name);}
 /*
 	@SubscribeEvent
