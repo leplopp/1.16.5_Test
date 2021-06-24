@@ -35,8 +35,7 @@ public class clientSetup {
         RenderingRegistry.registerEntityRenderingHandler(entitycreatortypes.LLL.get(), lllRender::new);
         RenderingRegistry.registerEntityRenderingHandler(entitycreatortypes.RINGENTITY.get(), ringRender::new);
         //RenderingRegistry.registerEntityRenderingHandler(entitycreatortypes.STOPI.get(), stopRender::new);
-        
-        
+             
         RenderTypeLookup.setRenderLayer(registerblocks.KIRCHNER_BLOCK.get(), RenderType.translucent());
         RenderTypeLookup.setRenderLayer(registerblocks.KIRCHNER_BLOCK_NORMAL.get(), RenderType.translucent());
         RenderTypeLookup.setRenderLayer(registerblocks.PINK_BLOCK_TROLL.get(), RenderType.translucent());
