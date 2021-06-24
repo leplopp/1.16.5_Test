@@ -11,17 +11,16 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
 @EventBusSubscriber(modid = pupmod.MODID)
 public class EntityEventSpawns {
-
 	@SubscribeEvent
-	public void onBiomeLoad(final BiomeLoadingEvent ev) {
+	public static void onBiomeLoad(final BiomeLoadingEvent ev) {
 		if (ev.getName() == null)
 			return; 
 		MobSpawnInfoBuilder spawns = ev.getSpawns();
 		
 		if(ev.getCategory().equals(Biome.Category.DESERT)) {
-			spawns.addSpawn(EntityClassification.CREATURE, new MobSpawnInfo.Spawners(entitycreatortypes.RINGENTITY.get(), 10, 5, 30));
+			spawns.addSpawn(EntityClassification.CREATURE, 
+					new MobSpawnInfo.Spawners(entitycreatortypes.RINGENTITY.get(), 5, 5, 30));
 		}
 	}
-
 }
   

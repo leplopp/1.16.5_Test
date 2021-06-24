@@ -1,10 +1,14 @@
 package com.pupmod.entitys;
 
+import java.util.Random;
+
 import javax.annotation.Nullable;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.AgeableEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.goal.BreedGoal;
@@ -24,6 +28,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 import sound.soundregistry;
@@ -57,6 +62,11 @@ public class ringEntity extends AnimalEntity {
 protected int getExperienceReward(PlayerEntity player) {
 	return 100;
 }
+
+/*
+public static boolean checkAnimalSpawnRules(EntityType<? extends AnimalEntity> p_223316_0_, IWorld p_223316_1_, SpawnReason p_223316_2_, BlockPos p_223316_3_, Random p_223316_4_) {
+    return p_223316_1_.getBlockState(p_223316_3_.below()).is(Blocks.SAND) && p_223316_1_.getRawBrightness(p_223316_3_, 0) > 4;
+ }*/
 
 @Override
 protected void playStepSound(BlockPos pos, BlockState state) {
