@@ -124,7 +124,9 @@
       "minecraft:forest": "2021-06-16 20:22:37 +0200",
       "minecraft:mountains": "2021-06-16 20:18:33 +0200",
       "minecraft:taiga": "2021-06-16 20:24:21 +0200",
+      "minecraft:desert_hills": "2021-06-24 17:07:16 +0200",
       "minecraft:taiga_hills": "2021-06-16 20:24:29 +0200",
+      "minecraft:desert": "2021-06-24 17:07:04 +0200",
       "minecraft:birch_forest": "2021-06-16 20:19:13 +0200",
       "minecraft:deep_lukewarm_ocean": "2021-06-16 20:22:29 +0200",
       "minecraft:beach": "2021-06-16 20:20:46 +0200",
@@ -135,6 +137,7 @@
       "minecraft:wooded_mountains": "2021-06-16 20:18:44 +0200",
       "minecraft:stone_shore": "2021-06-16 20:22:03 +0200",
       "minecraft:swamp": "2021-06-16 20:18:24 +0200",
+      "minecraft:savanna": "2021-06-24 17:32:25 +0200",
       "minecraft:plains": "2021-06-16 20:17:48 +0200"
     },
     "done": false

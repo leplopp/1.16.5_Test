@@ -35,13 +35,13 @@ import net.minecraftforge.common.util.NonNullSupplier;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 
-public class pupEggs extends SpawnEggItem /*extends Item*/{
+public class pupEggs extends SpawnEggItem{
 
 	protected static final List<pupEggs> UNADDED_EGGS = new ArrayList<>();
 	
 	protected static DefaultDispenseItemBehavior behavior = new DefaultDispenseItemBehavior() {
-		
-		protected ItemStack dispenseStack(IBlockSource source, ItemStack stack) {
+
+		protected ItemStack execute(IBlockSource source, ItemStack stack) {
 			Direction direction = source.getBlockState().getValue(DispenserBlock.FACING);
 			EntityType<?> eType = ((SpawnEggItem) stack.getItem()).getType(stack.getTag());
 

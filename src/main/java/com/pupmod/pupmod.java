@@ -4,6 +4,7 @@ import java.util.Locale;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import com.pupmod.blocks.registerblocks;
+import com.pupmod.entitys.EntityEventSpawns;
 import com.pupmod.entitys.entitycreatortypes;
 import com.pupmod.generate.featureinit;
 import com.pupmod.items.Registeritems;
@@ -52,7 +53,7 @@ public class pupmod {
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(modSetup::init);	
         FMLJavaModLoadingContext.get().getModEventBus().addListener(clientSetup::init);
         MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, featureinit::addOres);
-		
+        
 		//MinecraftForge.EVENT_BUS.register(BiomeINIT.BIOMES);
 		//pupFluids.FLOWING_PINK_FLUID.getRegistryType();
 		//pupFluids.PINK_FLUID.getRegistryType();
