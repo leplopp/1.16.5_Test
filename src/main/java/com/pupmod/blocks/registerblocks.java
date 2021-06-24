@@ -110,22 +110,6 @@ public class registerblocks {
 	public static final RegistryObject<Block> PINK_STONE = BLOCKS.register("pink_stone",
 			() -> new kirchnerblock(AbstractBlock.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).harvestLevel(1)
 					.harvestTool(ToolType.PICKAXE).strength(3f).sound(SoundType.STONE).noOcclusion()));
-	
-	public static final RegistryObject<Block> SNOT_BRICKS = BLOCKS.register("snot_bricks",
-			() -> new kirchnerblock(AbstractBlock.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).harvestLevel(1)
-					.harvestTool(ToolType.PICKAXE).strength(3f).sound(SoundType.STONE).noOcclusion()));
-	
-	public static final RegistryObject<Block> SNOT_STONE = BLOCKS.register("snot_stone",
-			() -> new kirchnerblock(AbstractBlock.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).harvestLevel(1)
-					.harvestTool(ToolType.PICKAXE).strength(3f).sound(SoundType.STONE).noOcclusion()));
-	
-	public static final RegistryObject<Block> PUKE_BRICKS = BLOCKS.register("puke_bricks",
-			() -> new kirchnerblock(AbstractBlock.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).harvestLevel(1)
-					.harvestTool(ToolType.PICKAXE).strength(3f).sound(SoundType.STONE).noOcclusion()));
-	
-	public static final RegistryObject<Block> PUKE_STONE = BLOCKS.register("puke_stone",
-			() -> new kirchnerblock(AbstractBlock.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).harvestLevel(1)
-					.harvestTool(ToolType.PICKAXE).strength(3f).sound(SoundType.STONE).noOcclusion()));
 
 
 }
