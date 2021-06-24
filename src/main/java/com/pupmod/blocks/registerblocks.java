@@ -86,10 +86,6 @@ public class registerblocks {
 	public static final RegistryObject<Block> IlluBlock_EINGESTELLT_OBJ = BLOCKS.register("ball_obj",
 			() -> new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).harvestLevel(1)
 					.harvestTool(ToolType.PICKAXE).strength(3f).sound(SoundType.STONE).noOcclusion()));
-	
-	public static final RegistryObject<Block> TOILET_OBJ = BLOCKS.register("toilet_obj",
-			() -> new Block(AbstractBlock.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).harvestLevel(1)
-					.harvestTool(ToolType.PICKAXE).strength(3f).sound(SoundType.STONE).noOcclusion()));
 
 	public static final RegistryObject<Block> MACHAUGEBLOCK = BLOCKS.register("eyeball",
 			() -> new kirchnerblock(AbstractBlock.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).harvestLevel(1)
