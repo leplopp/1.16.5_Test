@@ -22,9 +22,9 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
 
-public class kirchLadderBlock extends LadderBlock {
+public class pupLadderBlock extends LadderBlock {
 
-	public kirchLadderBlock(Properties prob) {
+	public pupLadderBlock(Properties prob) {
 		super(prob);
 	   }
 

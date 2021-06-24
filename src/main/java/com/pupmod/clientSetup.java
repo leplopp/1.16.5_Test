@@ -12,7 +12,6 @@ import com.pupmod.render.puhRender;
 import com.pupmod.render.ringRender;
 import com.pupmod.render.stopRender;
 import com.pupmod.render.testRender;
-
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.entity.passive.SheepEntity;

@@ -17,10 +17,10 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 
-public class kirchnerblock extends AbstractGlassBlock{
+public class invisibleblock extends AbstractGlassBlock{
 	
 	    
-	public kirchnerblock(Properties prob) {
+	public invisibleblock(Properties prob) {
 		super(prob);
 	}
 	
