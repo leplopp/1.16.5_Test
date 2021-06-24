@@ -1,0 +1,143 @@
+---- Minecraft Crash Report ----
+// I bet Cylons wouldn't have this problem.
+
+Time: 5/17/21 4:21 PM
+Description: Ticking entity
+
+java.lang.IllegalArgumentException: bound must be positive
+	at java.util.Random.nextInt(Unknown Source) ~[?:1.8.0_291] {}
+	at net.minecraft.entity.ai.goal.RandomWalkingGoal.canUse(RandomWalkingGoal.java:44) ~[forge:?] {re:classloading}
+	at net.minecraft.entity.ai.goal.PrioritizedGoal.canUse(PrioritizedGoal.java:21) ~[forge:?] {re:classloading}
+	at java.util.stream.ReferencePipeline$2$1.accept(Unknown Source) ~[?:1.8.0_291] {}
+	at java.util.stream.ReferencePipeline$2$1.accept(Unknown Source) ~[?:1.8.0_291] {}
+	at java.util.stream.ReferencePipeline$2$1.accept(Unknown Source) ~[?:1.8.0_291] {}
+	at java.util.stream.ReferencePipeline$2$1.accept(Unknown Source) ~[?:1.8.0_291] {}
+	at java.util.Iterator.forEachRemaining(Unknown Source) ~[?:1.8.0_291] {}
+	at java.util.Spliterators$IteratorSpliterator.forEachRemaining(Unknown Source) ~[?:1.8.0_291] {}
+	at java.util.stream.AbstractPipeline.copyInto(Unknown Source) ~[?:1.8.0_291] {}
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(Unknown Source) ~[?:1.8.0_291] {}
+	at java.util.stream.ForEachOps$ForEachOp.evaluateSequential(Unknown Source) ~[?:1.8.0_291] {}
+	at java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(Unknown Source) ~[?:1.8.0_291] {}
+	at java.util.stream.AbstractPipeline.evaluate(Unknown Source) ~[?:1.8.0_291] {}
+	at java.util.stream.ReferencePipeline.forEach(Unknown Source) ~[?:1.8.0_291] {}
+	at net.minecraft.entity.ai.goal.GoalSelector.tick(GoalSelector.java:70) ~[forge:?] {re:classloading}
+	at net.minecraft.entity.MobEntity.serverAiStep(MobEntity.java:682) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.entity.LivingEntity.aiStep(LivingEntity.java:2411) ~[forge:?] {re:classloading}
+	at net.minecraft.entity.MobEntity.aiStep(MobEntity.java:488) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.entity.monster.MonsterEntity.aiStep(MonsterEntity.java:40) ~[forge:?] {re:classloading}
+	at net.minecraft.entity.LivingEntity.tick(LivingEntity.java:2158) ~[forge:?] {re:classloading}
+	at net.minecraft.entity.MobEntity.tick(MobEntity.java:300) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.server.ServerWorld.tickNonPassenger(ServerWorld.java:611) ~[forge:?] {re:classloading}
+	at net.minecraft.world.World.guardEntityTick(World.java:554) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.server.ServerWorld.tick(ServerWorld.java:404) ~[forge:?] {re:classloading}
+	at net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:851) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:787) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.integrated.IntegratedServer.tickServer(IntegratedServer.java:78) ~[forge:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:642) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:232) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_291] {}
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server thread
+Stacktrace:
+	at java.util.Random.nextInt(Unknown Source) ~[?:1.8.0_291] {}
+	at net.minecraft.entity.ai.goal.RandomWalkingGoal.canUse(RandomWalkingGoal.java:44) ~[forge:?] {re:classloading}
+	at net.minecraft.entity.ai.goal.PrioritizedGoal.canUse(PrioritizedGoal.java:21) ~[forge:?] {re:classloading}
+	at java.util.stream.ReferencePipeline$2$1.accept(Unknown Source) ~[?:1.8.0_291] {}
+	at java.util.stream.ReferencePipeline$2$1.accept(Unknown Source) ~[?:1.8.0_291] {}
+	at java.util.stream.ReferencePipeline$2$1.accept(Unknown Source) ~[?:1.8.0_291] {}
+	at java.util.stream.ReferencePipeline$2$1.accept(Unknown Source) ~[?:1.8.0_291] {}
+	at java.util.Iterator.forEachRemaining(Unknown Source) ~[?:1.8.0_291] {}
+	at java.util.Spliterators$IteratorSpliterator.forEachRemaining(Unknown Source) ~[?:1.8.0_291] {}
+	at java.util.stream.AbstractPipeline.copyInto(Unknown Source) ~[?:1.8.0_291] {}
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(Unknown Source) ~[?:1.8.0_291] {}
+	at java.util.stream.ForEachOps$ForEachOp.evaluateSequential(Unknown Source) ~[?:1.8.0_291] {}
+	at java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(Unknown Source) ~[?:1.8.0_291] {}
+	at java.util.stream.AbstractPipeline.evaluate(Unknown Source) ~[?:1.8.0_291] {}
+	at java.util.stream.ReferencePipeline.forEach(Unknown Source) ~[?:1.8.0_291] {}
+	at net.minecraft.entity.ai.goal.GoalSelector.tick(GoalSelector.java:70) ~[forge:?] {re:classloading}
+	at net.minecraft.entity.MobEntity.serverAiStep(MobEntity.java:682) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.entity.LivingEntity.aiStep(LivingEntity.java:2411) ~[forge:?] {re:classloading}
+	at net.minecraft.entity.MobEntity.aiStep(MobEntity.java:488) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.entity.monster.MonsterEntity.aiStep(MonsterEntity.java:40) ~[forge:?] {re:classloading}
+	at net.minecraft.entity.LivingEntity.tick(LivingEntity.java:2158) ~[forge:?] {re:classloading}
+	at net.minecraft.entity.MobEntity.tick(MobEntity.java:300) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.server.ServerWorld.tickNonPassenger(ServerWorld.java:611) ~[forge:?] {re:classloading}
+-- Entity being ticked --
+Details:
+	Entity Type: pupmod:niggi (com.pupmod.entitys.NiggiEntity)
+	Entity ID: 439
+	Entity Name: entity.pupmod.niggi
+	Entity's Exact location: -1156.27, 74.00, 4284.62
+	Entity's Block location: World: (-1157,74,4284), Chunk: (at 11,4,12 in -73,267; contains blocks -1168,0,4272 to -1153,255,4287), Region: (-3,8; contains chunks -96,256 to -65,287, blocks -1536,0,4096 to -1025,255,4607)
+	Entity's Momentum: 0.00, -0.08, 0.00
+	Entity's Passengers: []
+	Entity's Vehicle: ~~ERROR~~ NullPointerException: null
+Stacktrace:
+	at net.minecraft.world.World.guardEntityTick(World.java:554) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.server.ServerWorld.tick(ServerWorld.java:404) ~[forge:?] {re:classloading}
+
+
+-- Affected level --
+Details:
+	All players: 1 total; [ServerPlayerEntity['Dev'/432, l='ServerLevel[Neue Welt]', x=-1151.44, y=77.15, z=4282.82]]
+	Chunk stats: ServerChunkCache: 2864
+	Level dimension: minecraft:overworld
+	Level spawn location: World: (16,64,27), Chunk: (at 0,4,11 in 1,1; contains blocks 16,0,16 to 31,255,31), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,0,0 to 511,255,511)
+	Level time: 289600 game time, 1572 day time
+	Level name: Neue Welt
+	Level game mode: Game mode: creative (ID 1). Hardcore: false. Cheats: true
+	Level weather: Rain time: 1 (now: false), thunder time: 1 (now: false)
+	Known server brands: forge
+	Level was modded: true
+	Level storage version: 0x04ABD - Anvil
+Stacktrace:
+	at net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:851) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:787) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.integrated.IntegratedServer.tickServer(IntegratedServer.java:78) ~[forge:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:642) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:232) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_291] {}
+
+
+-- System Details --
+Details:
+	Minecraft Version: 1.16.5
+	Minecraft Version ID: 1.16.5
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 1.8.0_291, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 2283642112 bytes (2177 MB) / 3589275648 bytes (3423 MB) up to 7621050368 bytes (7268 MB)
+	CPUs: 12
+	JVM Flags: 1 total; -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump
+	ModLauncher: 8.0.9+86+master.3cf110c
+	ModLauncher launch target: fmluserdevclient
+	ModLauncher naming: mcp
+	ModLauncher services: 
+		/mixin-0.8.2.jar mixin PLUGINSERVICE 
+		/eventbus-4.0.0.jar eventbus PLUGINSERVICE 
+		/forge-1.16.5-36.1.4_mapped_official_1.16.5-launcher.jar object_holder_definalize PLUGINSERVICE 
+		/forge-1.16.5-36.1.4_mapped_official_1.16.5-launcher.jar runtime_enum_extender PLUGINSERVICE 
+		/accesstransformers-3.0.1.jar accesstransformer PLUGINSERVICE 
+		/forge-1.16.5-36.1.4_mapped_official_1.16.5-launcher.jar capability_inject_definalize PLUGINSERVICE 
+		/forge-1.16.5-36.1.4_mapped_official_1.16.5-launcher.jar runtimedistcleaner PLUGINSERVICE 
+		/mixin-0.8.2.jar mixin TRANSFORMATIONSERVICE 
+		/forge-1.16.5-36.1.4_mapped_official_1.16.5-launcher.jar fml TRANSFORMATIONSERVICE 
+	FML: 36.1
+	Forge: net.minecraftforge:36.1.4
+	FML Language Providers: 
+		javafml@36.1
+		minecraft@1
+	Mod List: 
+		client-extra.jar                                  |Minecraft                     |minecraft                     |1.16.5              |DONE      |a1:d4:5e:04:4f:d3:d6:e0:7b:37:97:cf:77:b0:de:ad:4a:47:ce:8c:96:49:5f:0a:cf:8c:ae:b2:6d:4b:8a:3f
+		main                                              |PupMod                        |pupmod                        |1.8.1332115674200   |DONE      |NOSIGNATURE
+		forge-1.16.5-36.1.4_mapped_official_1.16.5-recomp.|Forge                         |forge                         |36.1.4              |DONE      |NOSIGNATURE
+	Crash Report UUID: c1696e4a-c219-42c0-95c4-d692a2461c9d
+	Player Count: 1 / 8; [ServerPlayerEntity['Dev'/432, l='ServerLevel[Neue Welt]', x=-1151.44, y=77.15, z=4282.82]]
+	Data Packs: vanilla, mod:pupmod, mod:forge
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Definitely; Client brand changed to 'forge'

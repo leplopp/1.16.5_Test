@@ -1,0 +1,8 @@
+{
+"type" : "minecraft:crafting_shaped",
+"ingredients": [],
+	"result": {
+		"item": "pupmod:pink_bricks",
+		"count": 1
+	}
+}

@@ -1,0 +1,53 @@
+{
+   "niggi": {
+    "subtitle": "niggi",
+    "replace": "true",
+    "sounds": [
+      {
+        "name": "pupmod:niggi",
+        "steam": true
+      }
+    ]
+  },
+    "hihi": {
+    "subtitle": "hihi",
+    "replace": "true",
+    "sounds": [
+      {
+        "name": "pupmod:hihi",
+        "steam": true
+      }
+    ]
+  },
+ 
+     "hungeraxel": {
+    "subtitle": "hungeraxel",
+    "replace": "true",
+    "sounds": [
+      {
+        "name": "pupmod:hungeraxel",
+        "steam": true
+      }
+    ]
+  },
+      "muhmoh": {
+    "subtitle": "muhmoh",
+    "replace": "true",
+    "sounds": [
+      {
+        "name": "pupmod:muhmoh",
+        "steam": true
+      }
+    ]
+  },
+      "ringi_step": {
+    "subtitle": "ringi_step",
+    "replace": "true",
+    "sounds": [
+      {
+        "name": "pupmod:ringi_step",
+        "steam": true
+      }
+    ]
+  }
+}

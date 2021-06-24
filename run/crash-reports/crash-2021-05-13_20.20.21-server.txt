@@ -1,0 +1,175 @@
+---- Minecraft Crash Report ----
+// This doesn't make any sense!
+
+Time: 5/13/21 8:20 PM
+Description: Ticking player
+
+java.lang.Error: Unresolved compilation problems: 
+	Syntax error, insert "Identifier (" to complete MethodHeaderName
+	Syntax error, insert ")" to complete MethodDeclaration
+	Syntax error, insert ";" to complete MethodDeclaration
+
+	at com.pupmod.entitys.testEntity.<init>(testEntity.java:32) ~[?:?] {re:classloading}
+	at net.minecraft.entity.EntityType.create(EntityType.java:445) ~[forge:?] {re:classloading}
+	at net.minecraft.entity.EntityType.lambda$create$1(EntityType.java:456) ~[forge:?] {re:classloading}
+	at java.util.Optional.map(Unknown Source) ~[?:1.8.0_291] {}
+	at net.minecraft.entity.EntityType.create(EntityType.java:455) ~[forge:?] {re:classloading}
+	at net.minecraft.entity.EntityType.loadStaticEntity(EntityType.java:513) ~[forge:?] {re:classloading}
+	at net.minecraft.entity.EntityType.loadEntityRecursive(EntityType.java:495) ~[forge:?] {re:classloading}
+	at net.minecraft.world.chunk.storage.ChunkSerializer.postLoadChunk(ChunkSerializer.java:384) ~[forge:?] {re:classloading}
+	at net.minecraft.world.chunk.storage.ChunkSerializer.lambda$read$2(ChunkSerializer.java:133) ~[forge:?] {re:classloading}
+	at net.minecraft.world.chunk.Chunk.runPostLoad(Chunk.java:457) ~[forge:?] {re:classloading}
+	at net.minecraft.world.server.ChunkManager.lambda$null$25(ChunkManager.java:582) ~[forge:?] {re:classloading}
+	at com.mojang.datafixers.util.Either.lambda$mapLeft$0(Either.java:162) ~[datafixerupper-4.0.26.jar:?] {re:classloading}
+	at com.mojang.datafixers.util.Either$Left.map(Either.java:38) ~[datafixerupper-4.0.26.jar:?] {}
+	at com.mojang.datafixers.util.Either.mapLeft(Either.java:162) ~[datafixerupper-4.0.26.jar:?] {re:classloading}
+	at net.minecraft.world.server.ChunkManager.lambda$protoChunkToFullChunk$26(ChunkManager.java:569) ~[forge:?] {re:classloading}
+	at java.util.concurrent.CompletableFuture.uniApply(Unknown Source) ~[?:1.8.0_291] {}
+	at java.util.concurrent.CompletableFuture$UniApply.tryFire(Unknown Source) ~[?:1.8.0_291] {}
+	at java.util.concurrent.CompletableFuture$Completion.run(Unknown Source) ~[?:1.8.0_291] {}
+	at net.minecraft.world.chunk.ChunkTaskPriorityQueueSorter.lambda$null$1(ChunkTaskPriorityQueueSorter.java:44) ~[forge:?] {re:classloading}
+	at net.minecraft.util.concurrent.ThreadTaskExecutor.doRunTask(ThreadTaskExecutor.java:136) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.server.ServerChunkProvider$ChunkExecutor.doRunTask(ServerChunkProvider.java:514) ~[forge:?] {re:classloading}
+	at net.minecraft.util.concurrent.ThreadTaskExecutor.pollTask(ThreadTaskExecutor.java:109) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.server.ServerChunkProvider$ChunkExecutor.pollTask(ServerChunkProvider.java:522) ~[forge:?] {re:classloading}
+	at net.minecraft.util.concurrent.ThreadTaskExecutor.managedBlock(ThreadTaskExecutor.java:119) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.server.ServerChunkProvider.getChunk(ServerChunkProvider.java:130) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.World.getChunk(World.java:167) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.World.getChunkForCollisions(World.java:711) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.util.math.shapes.VoxelShapeSpliterator.getChunk(VoxelShapeSpliterator.java:109) ~[forge:?] {re:classloading}
+	at net.minecraft.util.math.shapes.VoxelShapeSpliterator.collisionCheck(VoxelShapeSpliterator.java:71) ~[forge:?] {re:classloading}
+	at net.minecraft.util.math.shapes.VoxelShapeSpliterator.tryAdvance(VoxelShapeSpliterator.java:57) ~[forge:?] {re:classloading}
+	at java.util.stream.ReferencePipeline.forEachWithCancel(Unknown Source) ~[?:1.8.0_291] {}
+	at java.util.stream.AbstractPipeline.copyIntoWithCancel(Unknown Source) ~[?:1.8.0_291] {}
+	at java.util.stream.AbstractPipeline.copyInto(Unknown Source) ~[?:1.8.0_291] {}
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(Unknown Source) ~[?:1.8.0_291] {}
+	at java.util.stream.FindOps$FindOp.evaluateSequential(Unknown Source) ~[?:1.8.0_291] {}
+	at java.util.stream.AbstractPipeline.evaluate(Unknown Source) ~[?:1.8.0_291] {}
+	at java.util.stream.ReferencePipeline.findAny(Unknown Source) ~[?:1.8.0_291] {}
+	at net.minecraft.entity.Entity.isInWall(Entity.java:1593) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.entity.LivingEntity.isInWall(LivingEntity.java:3075) ~[forge:?] {re:classloading}
+	at net.minecraft.entity.LivingEntity.baseTick(LivingEntity.java:299) ~[forge:?] {re:classloading}
+	at net.minecraft.entity.Entity.tick(Entity.java:387) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.entity.LivingEntity.tick(LivingEntity.java:2113) ~[forge:?] {re:classloading}
+	at net.minecraft.entity.player.PlayerEntity.tick(PlayerEntity.java:223) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.entity.player.ServerPlayerEntity.doTick(ServerPlayerEntity.java:404) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.network.play.ServerPlayNetHandler.tick(ServerPlayNetHandler.java:207) ~[forge:?] {re:classloading}
+	at net.minecraft.network.NetworkManager.tick(NetworkManager.java:226) ~[forge:?] {re:classloading}
+	at net.minecraft.network.NetworkSystem.tick(NetworkSystem.java:134) ~[forge:?] {re:classloading}
+	at net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:865) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:787) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.integrated.IntegratedServer.tickServer(IntegratedServer.java:78) ~[forge:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:642) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:232) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_291] {}
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server thread
+Stacktrace:
+	at com.pupmod.entitys.testEntity.<init>(testEntity.java:32) ~[?:?] {re:classloading}
+	at net.minecraft.entity.EntityType.create(EntityType.java:445) ~[forge:?] {re:classloading}
+	at net.minecraft.entity.EntityType.lambda$create$1(EntityType.java:456) ~[forge:?] {re:classloading}
+	at java.util.Optional.map(Unknown Source) ~[?:1.8.0_291] {}
+	at net.minecraft.entity.EntityType.create(EntityType.java:455) ~[forge:?] {re:classloading}
+	at net.minecraft.entity.EntityType.loadStaticEntity(EntityType.java:513) ~[forge:?] {re:classloading}
+	at net.minecraft.entity.EntityType.loadEntityRecursive(EntityType.java:495) ~[forge:?] {re:classloading}
+	at net.minecraft.world.chunk.storage.ChunkSerializer.postLoadChunk(ChunkSerializer.java:384) ~[forge:?] {re:classloading}
+	at net.minecraft.world.chunk.storage.ChunkSerializer.lambda$read$2(ChunkSerializer.java:133) ~[forge:?] {re:classloading}
+	at net.minecraft.world.chunk.Chunk.runPostLoad(Chunk.java:457) ~[forge:?] {re:classloading}
+	at net.minecraft.world.server.ChunkManager.lambda$null$25(ChunkManager.java:582) ~[forge:?] {re:classloading}
+	at com.mojang.datafixers.util.Either.lambda$mapLeft$0(Either.java:162) ~[datafixerupper-4.0.26.jar:?] {re:classloading}
+	at com.mojang.datafixers.util.Either$Left.map(Either.java:38) ~[datafixerupper-4.0.26.jar:?] {}
+	at com.mojang.datafixers.util.Either.mapLeft(Either.java:162) ~[datafixerupper-4.0.26.jar:?] {re:classloading}
+	at net.minecraft.world.server.ChunkManager.lambda$protoChunkToFullChunk$26(ChunkManager.java:569) ~[forge:?] {re:classloading}
+	at java.util.concurrent.CompletableFuture.uniApply(Unknown Source) ~[?:1.8.0_291] {}
+	at java.util.concurrent.CompletableFuture$UniApply.tryFire(Unknown Source) ~[?:1.8.0_291] {}
+	at java.util.concurrent.CompletableFuture$Completion.run(Unknown Source) ~[?:1.8.0_291] {}
+	at net.minecraft.world.chunk.ChunkTaskPriorityQueueSorter.lambda$null$1(ChunkTaskPriorityQueueSorter.java:44) ~[forge:?] {re:classloading}
+	at net.minecraft.util.concurrent.ThreadTaskExecutor.doRunTask(ThreadTaskExecutor.java:136) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.server.ServerChunkProvider$ChunkExecutor.doRunTask(ServerChunkProvider.java:514) ~[forge:?] {re:classloading}
+	at net.minecraft.util.concurrent.ThreadTaskExecutor.pollTask(ThreadTaskExecutor.java:109) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.server.ServerChunkProvider$ChunkExecutor.pollTask(ServerChunkProvider.java:522) ~[forge:?] {re:classloading}
+	at net.minecraft.util.concurrent.ThreadTaskExecutor.managedBlock(ThreadTaskExecutor.java:119) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.server.ServerChunkProvider.getChunk(ServerChunkProvider.java:130) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.World.getChunk(World.java:167) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.World.getChunkForCollisions(World.java:711) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.util.math.shapes.VoxelShapeSpliterator.getChunk(VoxelShapeSpliterator.java:109) ~[forge:?] {re:classloading}
+	at net.minecraft.util.math.shapes.VoxelShapeSpliterator.collisionCheck(VoxelShapeSpliterator.java:71) ~[forge:?] {re:classloading}
+	at net.minecraft.util.math.shapes.VoxelShapeSpliterator.tryAdvance(VoxelShapeSpliterator.java:57) ~[forge:?] {re:classloading}
+	at java.util.stream.ReferencePipeline.forEachWithCancel(Unknown Source) ~[?:1.8.0_291] {}
+	at java.util.stream.AbstractPipeline.copyIntoWithCancel(Unknown Source) ~[?:1.8.0_291] {}
+	at java.util.stream.AbstractPipeline.copyInto(Unknown Source) ~[?:1.8.0_291] {}
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(Unknown Source) ~[?:1.8.0_291] {}
+	at java.util.stream.FindOps$FindOp.evaluateSequential(Unknown Source) ~[?:1.8.0_291] {}
+	at java.util.stream.AbstractPipeline.evaluate(Unknown Source) ~[?:1.8.0_291] {}
+	at java.util.stream.ReferencePipeline.findAny(Unknown Source) ~[?:1.8.0_291] {}
+	at net.minecraft.entity.Entity.isInWall(Entity.java:1593) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.entity.LivingEntity.isInWall(LivingEntity.java:3075) ~[forge:?] {re:classloading}
+	at net.minecraft.entity.LivingEntity.baseTick(LivingEntity.java:299) ~[forge:?] {re:classloading}
+	at net.minecraft.entity.Entity.tick(Entity.java:387) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.entity.LivingEntity.tick(LivingEntity.java:2113) ~[forge:?] {re:classloading}
+	at net.minecraft.entity.player.PlayerEntity.tick(PlayerEntity.java:223) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+-- Player being ticked --
+Details:
+	Entity Type: minecraft:player (net.minecraft.entity.player.ServerPlayerEntity)
+	Entity ID: 129
+	Entity Name: Dev
+	Entity's Exact location: -1152.73, 79.30, 4281.44
+	Entity's Block location: World: (-1153,79,4281), Chunk: (at 15,4,9 in -73,267; contains blocks -1168,0,4272 to -1153,255,4287), Region: (-3,8; contains chunks -96,256 to -65,287, blocks -1536,0,4096 to -1025,255,4607)
+	Entity's Momentum: 0.00, 0.00, 0.00
+	Entity's Passengers: []
+	Entity's Vehicle: ~~ERROR~~ NullPointerException: null
+Stacktrace:
+	at net.minecraft.entity.player.ServerPlayerEntity.doTick(ServerPlayerEntity.java:404) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.network.play.ServerPlayNetHandler.tick(ServerPlayNetHandler.java:207) ~[forge:?] {re:classloading}
+	at net.minecraft.network.NetworkManager.tick(NetworkManager.java:226) ~[forge:?] {re:classloading}
+	at net.minecraft.network.NetworkSystem.tick(NetworkSystem.java:134) ~[forge:?] {re:classloading}
+	at net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:865) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:787) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.integrated.IntegratedServer.tickServer(IntegratedServer.java:78) ~[forge:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:642) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:232) ~[forge:?] {re:classloading,pl:accesstransformer:B}
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_291] {}
+
+
+-- System Details --
+Details:
+	Minecraft Version: 1.16.5
+	Minecraft Version ID: 1.16.5
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 1.8.0_291, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 1023370144 bytes (975 MB) / 3540516864 bytes (3376 MB) up to 7621050368 bytes (7268 MB)
+	CPUs: 12
+	JVM Flags: 1 total; -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump
+	ModLauncher: 8.0.9+86+master.3cf110c
+	ModLauncher launch target: fmluserdevclient
+	ModLauncher naming: mcp
+	ModLauncher services: 
+		/mixin-0.8.2.jar mixin PLUGINSERVICE 
+		/eventbus-4.0.0.jar eventbus PLUGINSERVICE 
+		/forge-1.16.5-36.1.4_mapped_official_1.16.5-launcher.jar object_holder_definalize PLUGINSERVICE 
+		/forge-1.16.5-36.1.4_mapped_official_1.16.5-launcher.jar runtime_enum_extender PLUGINSERVICE 
+		/accesstransformers-3.0.1.jar accesstransformer PLUGINSERVICE 
+		/forge-1.16.5-36.1.4_mapped_official_1.16.5-launcher.jar capability_inject_definalize PLUGINSERVICE 
+		/forge-1.16.5-36.1.4_mapped_official_1.16.5-launcher.jar runtimedistcleaner PLUGINSERVICE 
+		/mixin-0.8.2.jar mixin TRANSFORMATIONSERVICE 
+		/forge-1.16.5-36.1.4_mapped_official_1.16.5-launcher.jar fml TRANSFORMATIONSERVICE 
+	FML: 36.1
+	Forge: net.minecraftforge:36.1.4
+	FML Language Providers: 
+		javafml@36.1
+		minecraft@1
+	Mod List: 
+		client-extra.jar                                  |Minecraft                     |minecraft                     |1.16.5              |DONE      |a1:d4:5e:04:4f:d3:d6:e0:7b:37:97:cf:77:b0:de:ad:4a:47:ce:8c:96:49:5f:0a:cf:8c:ae:b2:6d:4b:8a:3f
+		main                                              |PupMod                        |pupmod                        |1.8.1332115674200   |DONE      |NOSIGNATURE
+		forge-1.16.5-36.1.4_mapped_official_1.16.5-recomp.|Forge                         |forge                         |36.1.4              |DONE      |NOSIGNATURE
+	Crash Report UUID: b400fde5-0def-4b37-8792-563e96ae9755
+	Player Count: 1 / 8; [ServerPlayerEntity['Dev'/129, l='ServerLevel[Neue Welt]', x=-1152.73, y=79.30, z=4281.44]]
+	Data Packs: vanilla, mod:pupmod, mod:forge
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Definitely; Client brand changed to 'forge'

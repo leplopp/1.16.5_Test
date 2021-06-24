@@ -1,0 +1,10 @@
+{
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:desert": "2021-05-17 19:02:28 +0200",
+      "minecraft:savanna": "2021-05-17 19:02:32 +0200"
+    },
+    "done": false
+  },
+  "DataVersion": 2586
+}

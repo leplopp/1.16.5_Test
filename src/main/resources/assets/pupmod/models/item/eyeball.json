@@ -1,0 +1,30 @@
+{
+  "parent": "pupmod:block/eyeball",
+ "display": {
+  "thirdperson_righthand": {
+      "rotation": [ 0, 100, 0 ],
+      "translation": [ 0.00, 0, 0 ],
+      "scale": [ 0.10, 0.10, 0.10 ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [ 0, 145, 0 ],
+      "translation": [ 0.00, 0, 0 ],
+      "scale": [ 0.10, 0.10, 0.10 ]
+    },
+    "firstperson_righthand": {
+      "rotation": [ 0, 145, 0 ],
+      "translation": [ -0.50, 0, 0 ],
+      "scale": [ 0.10, 0.10, 0.10 ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [ 0, 145, 0 ],
+      "translation": [ -0, 0, 0 ],
+      "scale": [ 0.10, 0.10, 0.10 ]
+    },
+    "gui": {
+      "rotation": [ 200, 200, 35 ],
+      "translation": [ -1.0, -3.0, 0.00 ],
+      "scale": [ 0.25, 0.25, 0.25 ]
+    }
+  }
+}

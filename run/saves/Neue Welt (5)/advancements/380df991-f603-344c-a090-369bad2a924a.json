@@ -1,0 +1,28 @@
+{
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:jungle_edge": "2021-05-12 10:45:54 +0200",
+      "minecraft:cold_ocean": "2021-05-12 10:47:50 +0200",
+      "minecraft:forest": "2021-05-12 10:45:01 +0200",
+      "minecraft:mountains": "2021-05-12 10:45:13 +0200",
+      "minecraft:taiga": "2021-05-12 10:46:18 +0200",
+      "minecraft:desert_hills": "2021-05-12 10:44:36 +0200",
+      "minecraft:desert": "2021-05-12 10:44:35 +0200",
+      "minecraft:jungle": "2021-05-12 10:45:32 +0200",
+      "minecraft:birch_forest": "2021-05-12 10:45:23 +0200",
+      "minecraft:jungle_hills": "2021-05-12 10:45:31 +0200",
+      "minecraft:bamboo_jungle": "2021-05-12 10:45:26 +0200",
+      "minecraft:beach": "2021-05-12 10:48:01 +0200",
+      "minecraft:dark_forest": "2021-05-12 10:44:20 +0200",
+      "minecraft:river": "2021-05-12 10:45:09 +0200",
+      "minecraft:lukewarm_ocean": "2021-05-12 10:48:32 +0200",
+      "minecraft:wooded_mountains": "2021-05-12 10:46:34 +0200",
+      "minecraft:bamboo_jungle_hills": "2021-05-12 10:45:30 +0200",
+      "minecraft:wooded_hills": "2021-05-12 10:45:03 +0200",
+      "minecraft:stone_shore": "2021-05-12 10:47:43 +0200",
+      "minecraft:plains": "2021-05-12 10:43:55 +0200"
+    },
+    "done": false
+  },
+  "DataVersion": 2586
+}

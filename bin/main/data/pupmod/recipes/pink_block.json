@@ -1,0 +1,11 @@
+{
+"type" : "minecraft:crafting_shapeless",
+"ingredients": [{
+ "item" : "pupmod:kirchner_block"
+}],
+	
+	"result": {
+		"item": "pupmod:pink_block",
+		"count": 100000000000
+	}
+}

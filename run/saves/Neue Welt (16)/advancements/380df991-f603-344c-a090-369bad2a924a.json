@@ -1,0 +1,22 @@
+{
+  "minecraft:adventure/root": {
+    "criteria": {
+      "killed_something": "2021-05-26 10:32:14 +0200"
+    },
+    "done": true
+  },
+  "minecraft:recipes/decorations/chest": {
+    "criteria": {
+      "has_lots_of_items": "2021-05-30 00:00:25 +0200"
+    },
+    "done": true
+  },
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:river": "2021-05-26 10:30:52 +0200",
+      "minecraft:plains": "2021-05-26 10:29:24 +0200"
+    },
+    "done": false
+  },
+  "DataVersion": 2586
+}

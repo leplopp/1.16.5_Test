@@ -1,0 +1,13 @@
+{
+"parent": "forge:block/default",
+	"loader": "forge:obj",
+	"model": "pupmod:models/block/ball_obj.obj",
+	"textures":
+	{
+	
+		"particle": "pupmod:block/pink_block"
+	
+	},
+	"flip-v": true
+
+}

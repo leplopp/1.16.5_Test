@@ -1,0 +1,16 @@
+[
+{
+  "modid": "pupmod",
+  "name": "Pupmod",
+  "description": "pupmod the best mod ever XD XD XD XD XD XD XD XD XD",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "https://minecraft.curseforge.com/projects/pupmod_for_kirchners",
+  "updateUrl": "https://minecraft.curseforge.com/projects/pupmod_for_kirchners/files",
+  "authorList": ["by leplopp"],
+  "credits": "by leplopp",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
