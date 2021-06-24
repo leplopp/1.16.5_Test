@@ -1,7 +1,6 @@
 package com.pupmod.entitys;
 
 import javax.annotation.Nullable;
-
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.AgeableEntity;
 import net.minecraft.entity.EntityType;
@@ -56,7 +55,7 @@ public class ringEntity extends AnimalEntity {
 		}
 @Override
 protected int getExperienceReward(PlayerEntity player) {
-	return player.experienceLevel = 100;
+	return 100;
 }
 
 @Override

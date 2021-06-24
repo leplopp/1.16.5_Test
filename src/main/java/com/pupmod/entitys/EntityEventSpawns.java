@@ -7,13 +7,13 @@ import net.minecraft.world.biome.MobSpawnInfo;
 import net.minecraftforge.common.world.MobSpawnInfoBuilder;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
-@Mod.EventBusSubscriber(modid = pupmod.MODID)
+@EventBusSubscriber(modid = pupmod.MODID)
 public class EntityEventSpawns {
 
 	@SubscribeEvent
-	public void onBiomeLoadspawn(final BiomeLoadingEvent ev) {
+	public void onBiomeLoad(final BiomeLoadingEvent ev) {
 		if (ev.getName() == null)
 			return; 
 		MobSpawnInfoBuilder spawns = ev.getSpawns();
