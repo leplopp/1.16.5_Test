@@ -80,40 +80,26 @@ public class pupmod {
 		MinecraftForge.EVENT_BUS.register(this);
 		
 		soundregistry.SoundInit();
-		//entitycreatortypes.EntityInit();
 		entitycreatortypes.ENTITIE_TYPES.register(bus);
+		
 		Registeritems.ITEMS.register(bus);
 		registerblocks.BLOCKS.register(bus);
+		
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(modSetup::init);	
         FMLJavaModLoadingContext.get().getModEventBus().addListener(clientSetup::init);
-		//pupFluids.FLOWING_PINK_FLUID.getRegistryType();
-		//pupFluids.PINK_FLUID.getRegistryType();
-		MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, featureinit::addOres);
+        MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, featureinit::addOres);
 		
 		//MinecraftForge.EVENT_BUS.register(BiomeINIT.BIOMES);
-
-		 
+		//pupFluids.FLOWING_PINK_FLUID.getRegistryType();
+		//pupFluids.PINK_FLUID.getRegistryType();
 	}
-	
-	//public void commonSetup(final FMLCommonSetupEvent event) {
-		 
-		 /*
-		DeferredWorkQueue.runLater(() -> {GlobalEntityTypeAttributes.put(entitycreatortypes.NIGGI.get(), NiggiEntity.setAttributes().build());});
-		DeferredWorkQueue.runLater(() -> {GlobalEntityTypeAttributes.put(entitycreatortypes.TEST_MODEL.get(), testEntity.setAttributes().build());});
-		DeferredWorkQueue.runLater(() -> {GlobalEntityTypeAttributes.put(entitycreatortypes.PUH.get(), PuhEntity.setAttributes().build());});
-		DeferredWorkQueue.runLater(() -> {GlobalEntityTypeAttributes.put(entitycreatortypes.PUPPIG.get(), puppigEntity.setAttributes().build());});
-		DeferredWorkQueue.runLater(() -> {GlobalEntityTypeAttributes.put(entitycreatortypes.GUMPALAN_BIG.get(), gumpalanBigEntity.setAttributes().build());});
-		DeferredWorkQueue.runLater(() -> {GlobalEntityTypeAttributes.put(entitycreatortypes.GUMPALAN.get(), gumpalanEntity.setAttributes().build());});
-		DeferredWorkQueue.runLater(() -> {GlobalEntityTypeAttributes.put(entitycreatortypes.LLL.get(), lllEntity.setAttributes().build());});
-		  */
-	
+
 		@SubscribeEvent
 	    public static void onRenderTypeSetup(FMLClientSetupEvent event) {event.enqueueWork(() -> {
 
 	        });
 	  
-		}
-	    
+		}  
 	
 	@SubscribeEvent
 	public static void onRegisterItems(final RegistryEvent.Register<Item> event) {
@@ -127,7 +113,7 @@ public class pupmod {
 		pupEggs.initSpawnEggs();
 	}
 	
-	public static ResourceLocation location(String name){return new ResourceLocation(MODID, name);}
+
 	
 	public static ResourceLocation prefix(String name){return new ResourceLocation(MODID.toLowerCase(Locale.ROOT), name);}
 /*
