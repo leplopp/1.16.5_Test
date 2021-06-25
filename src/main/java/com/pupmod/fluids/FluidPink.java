@@ -23,7 +23,7 @@ public abstract class FluidPink extends FlowingFluid{
 
 	@Override
 	public Fluid getSource() {
-		return liquid.PINK_FLUID;
+		return liquid.pink_fluid;
 	}
 
 	@Override
@@ -52,19 +52,18 @@ public abstract class FluidPink extends FlowingFluid{
 	}
 
 	@Override
-	protected boolean canBeReplacedWith(FluidState state, IBlockReader read, BlockPos pos,
-			Fluid fluid, Direction rule) {
-		return false;
+	protected boolean canBeReplacedWith(FluidState state, IBlockReader read, BlockPos pos,Fluid fluid, Direction rule) {
+		return rule == Direction.DOWN && !fluid.is(liquid.Tags.PINK_FLUID);
 	}
 
 	@Override
 	public int getTickDelay(IWorldReader p_205569_1_) {
-		return 0;
+		return 60;
 	}
 
 	@Override
 	protected float getExplosionResistance() {
-		return 0;
+		return 100;
 	}
 
 	@Override
