@@ -111,6 +111,7 @@ public class registerblocks {
 
 	//fluids
 
+	@SuppressWarnings("deprecation")
 	public static final RegistryObject<FlowingFluidBlock> PINK_FLUID = BLOCKS.register("pink_fluid",
 			() -> new FlowingFluidBlock(liquid.pink_fluid, AbstractBlock.Properties.of(Material.WATER, MaterialColor.COLOR_PINK).noCollission().strength(100.0F).noDrops()));
 }

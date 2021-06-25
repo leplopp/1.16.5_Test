@@ -13,5 +13,7 @@ public class RegistryFluids {
 	@SubscribeEvent
 	public static void RegisterFluids(final RegistryEvent.Register<Fluid> event) {
 		event.getRegistry().registerAll(	);
+		
+		
 	}
 }
