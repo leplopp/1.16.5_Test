@@ -1,18 +1,22 @@
 package com.pupmod.fluids;
 
+import com.pupmod.blocks.registerblocks;
 import com.pupmod.items.Registeritems;
 import com.pupmod.lists.liquid;
 
 import net.minecraft.block.BlockState;
+import net.minecraft.block.FlowingFluidBlock;
 import net.minecraft.fluid.FlowingFluid;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.FluidState;
+import net.minecraft.fluid.WaterFluid;
 import net.minecraft.item.Item;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.IWorldReader;
+import net.minecraftforge.fluids.FluidAttributes;
 
 public abstract class FluidPink extends FlowingFluid{
 
@@ -63,13 +67,22 @@ public abstract class FluidPink extends FlowingFluid{
 
 	@Override
 	protected float getExplosionResistance() {
-		return 100;
+		return 100.0f;
 	}
 
 	@Override
-	protected BlockState createLegacyBlock(FluidState p_204527_1_) {
-		return null;
+	protected BlockState createLegacyBlock(FluidState state) {
+		return registerblocks.PINK_FLUID.get().defaultBlockState().setValue(FlowingFluidBlock.LEVEL, Integer.valueOf(getLegacyLevel(state)));
 	}
-
+	
+	@Override
+	public boolean isSame(Fluid fluidIn) {
+		return fluidIn == liquid.pink_fluid || fluidIn == liquid.flowing_pink_fluid;
+	}
+	 @Override
+	protected FluidAttributes createAttributes() {
+		FluidAttributes.builder(RegistryFluids.class.)
+		
+	}
 
 }

@@ -17,7 +17,7 @@ import net.minecraft.util.ResourceLocation;
 public class liquid {
 
 	public static final FluidPink pink_fluid = null;
-	public static final FluidPink FLOWING_PINK_FLUID = null;
+	public static final FluidPink flowing_pink_fluid = null;
 	
 	public static class     Tags {
 		 

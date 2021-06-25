@@ -1,12 +1,14 @@
 package com.pupmod.blocks;
 
 import com.pupmod.pupmod;
+import com.pupmod.lists.liquid;
 import com.pupmod.lists.names;
 import com.pupmod.lists.properties;
 
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BarrierBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.FlowingFluidBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.material.MaterialColor;
@@ -107,5 +109,8 @@ public class registerblocks {
 			() -> new invisibleblock(AbstractBlock.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).harvestLevel(1)
 					.harvestTool(ToolType.PICKAXE).strength(3f).sound(SoundType.STONE).noOcclusion()));
 
+	//fluids
 
+	public static final RegistryObject<FlowingFluidBlock> PINK_FLUID = BLOCKS.register("pink_fluid",
+			() -> new FlowingFluidBlock(liquid.pink_fluid, AbstractBlock.Properties.of(Material.WATER, MaterialColor.COLOR_PINK).noCollission().strength(100.0F).noDrops()));
 }
