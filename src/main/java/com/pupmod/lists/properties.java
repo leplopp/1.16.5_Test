@@ -1,4 +1,4 @@
-package com.pupmod;
+package com.pupmod.lists;
 
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.AbstractBlock.Properties;

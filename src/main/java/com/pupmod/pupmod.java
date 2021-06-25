@@ -4,12 +4,12 @@ import java.util.Locale;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import com.pupmod.blocks.registerblocks;
-import com.pupmod.entitys.EntityEventSpawns;
 import com.pupmod.entitys.entitycreatortypes;
 import com.pupmod.generate.featureinit;
 import com.pupmod.items.Registeritems;
 import com.pupmod.items.pupEggs;
 import net.minecraft.entity.EntityType;
+import net.minecraft.fluid.Fluid;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -23,7 +23,6 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import sound.soundregistry;
 
@@ -58,13 +57,6 @@ public class pupmod {
 		//pupFluids.FLOWING_PINK_FLUID.getRegistryType();
 		//pupFluids.PINK_FLUID.getRegistryType();
 	}
-
-		@SubscribeEvent
-	    public static void onRenderTypeSetup(FMLClientSetupEvent event) {event.enqueueWork(() -> {
-
-	        });
-	  
-		}  
 	
 	@SubscribeEvent
 	public static void onRegisterItems(final RegistryEvent.Register<Item> event) {
@@ -76,6 +68,11 @@ public class pupmod {
 	@SubscribeEvent
 	public static void onRegisterEntities(final RegistryEvent.Register<EntityType<?>> event) {
 		pupEggs.initSpawnEggs();
+	}
+	
+	@SubscribeEvent
+	public static void RegisterFluids(final RegistryEvent.Register<Fluid> event) {
+		event.getRegistry().registerAll(	);
 	}
 	
 	public static ResourceLocation prefix(String name){return new ResourceLocation(MODID.toLowerCase(Locale.ROOT), name);}

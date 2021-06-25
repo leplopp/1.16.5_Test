@@ -1,4 +1,4 @@
-package com.pupmod;
+package com.pupmod.lists;
 
 public class names {
 

@@ -1,7 +1,6 @@
 package com.pupmod.items;
 
 import com.pupmod.pupmod;
-import com.pupmod.blocks.pupFluids;
 import com.pupmod.entitys.entitycreatortypes;
 import com.pupmod.render.RenderNiggi;
 import net.minecraft.fluid.Fluids;

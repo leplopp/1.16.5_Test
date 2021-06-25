@@ -1,8 +1,9 @@
 package com.pupmod.blocks;
 
-import com.pupmod.names;
-import com.pupmod.properties;
 import com.pupmod.pupmod;
+import com.pupmod.lists.names;
+import com.pupmod.lists.properties;
+
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BarrierBlock;
 import net.minecraft.block.Block;
