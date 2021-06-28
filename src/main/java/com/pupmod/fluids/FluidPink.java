@@ -22,7 +22,7 @@ public abstract class FluidPink extends FlowingFluid{
 
 	@Override
 	public Fluid getFlowing() {
-		return liquid.FLOWING_PINK_FLUID;
+		return liquid.flowing_pink_fluid;
 	}
 
 	@Override
@@ -79,10 +79,10 @@ public abstract class FluidPink extends FlowingFluid{
 	public boolean isSame(Fluid fluidIn) {
 		return fluidIn == liquid.pink_fluid || fluidIn == liquid.flowing_pink_fluid;
 	}
-	 @Override
+	/* @Override
 	protected FluidAttributes createAttributes() {
 		FluidAttributes.builder(RegistryFluids.class.)
 		
-	}
+	}*/
 
 }

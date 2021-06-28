@@ -1,0 +1,53 @@
+{	
+	"variants": {
+        "facing=north,half=bottom,shape=outer_right":  {   "textures": {"0": "minecraft:block/cobblestone","particle": "minecraft:block/cobblestone"},"model":"pupmod:block/corner_in_main", "y": 90, "uvlock": true},
+        "facing=south,half=bottom,shape=outer_right": {"textures": {"0": "minecraft:block/cobblestone","particle": "minecraft:block/cobblestone"},"model":"pupmod:block/corner_in_main", "y": 270, "uvlock": true},
+        "facing=east,half=bottom,shape=outer_right": {"textures": {"0": "minecraft:block/cobblestone","particle": "minecraft:block/cobblestone"},"model":"pupmod:block/corner_in_main", "y": 180, "uvlock": true},
+		"facing=west,half=bottom,shape=outer_right": {"textures": {"0": "minecraft:block/cobblestone","particle": "minecraft:block/cobblestone"},"model":"pupmod:block/corner_in_main", "y": 0, "uvlock": true},
+		
+        "facing=north,half=bottom,shape=outer_left":  {"textures": {"0": "minecraft:block/cobblestone","particle": "minecraft:block/cobblestone"},"model":"pupmod:block/corner_in_main", "y": 0, "uvlock": true},
+        "facing=south,half=bottom,shape=outer_left":  {"textures": {"0": "minecraft:block/cobblestone","particle": "minecraft:block/cobblestone"},"model":"pupmod:block/corner_in_main", "y": 180, "uvlock": true},
+        "facing=east,half=bottom,shape=outer_left": {"textures": {"0": "minecraft:block/cobblestone","particle": "minecraft:block/cobblestone"},"model":"pupmod:block/corner_in_main", "y": 90, "uvlock": true},
+        "facing=west,half=bottom,shape=outer_left": {"textures": {"0": "minecraft:block/cobblestone","particle": "minecraft:block/cobblestone"},"model":"pupmod:block/corner_in_main", "y": 270, "uvlock": true},	
+        	
+		"facing=west,half=bottom,shape=inner_right":  {"textures": {"0": "minecraft:block/cobblestone","particle": "minecraft:block/cobblestone"},"model":"pupmod:block/corner_out_main", "y": 0, "uvlock": true},
+        "facing=east,half=bottom,shape=inner_right":  {"textures": {"0": "minecraft:block/cobblestone","particle": "minecraft:block/cobblestone"},"model":"pupmod:block/corner_out_main","y": 180, "uvlock": true},
+        "facing=north,half=bottom,shape=inner_right": {"textures": {"0": "minecraft:block/cobblestone","particle": "minecraft:block/cobblestone"},"model":"pupmod:block/corner_out_main","y": 90, "uvlock": true},
+        "facing=south,half=bottom,shape=inner_right": {"textures": {"0": "minecraft:block/cobblestone","particle": "minecraft:block/cobblestone"},"model":"pupmod:block/corner_out_main","y": 270, "uvlock": true},	
+        
+        "facing=west,half=bottom,shape=inner_left":  {"textures": {"0": "minecraft:block/cobblestone","particle": "minecraft:block/cobblestone"},"model":"pupmod:block/corner_out_main","y": 270, "uvlock": true},
+        "facing=east,half=bottom,shape=inner_left":  {"textures": {"0": "minecraft:block/cobblestone","particle": "minecraft:block/cobblestone"},"model":"pupmod:block/corner_out_main","y": 90, "uvlock": true},
+        "facing=north,half=bottom,shape=inner_left": {"textures": {"0": "minecraft:block/cobblestone","particle": "minecraft:block/cobblestone"},"model":"pupmod:block/corner_out_main","y": 0, "uvlock": true},
+        "facing=south,half=bottom,shape=inner_left": {"textures": {"0": "minecraft:block/cobblestone","particle": "minecraft:block/cobblestone"},"model":"pupmod:block/corner_out_main","y": 180, "uvlock": true},	
+        	
+        "facing=north,half=top,shape=straight":  {"model": "pupmod:block/slope_main", "x": 180, "y": 180, "uvlock": true},
+        "facing=west,half=top,shape=straight": {"model": "pupmod:block/slope_main", "x": 180, "y": 90, "uvlock": true},
+        "facing=south,half=top,shape=straight": {"model": "pupmod:block/slope_main", "x": 180, "y": 0, "uvlock": true},
+		"facing=east,half=top,shape=straight": {"model": "pupmod:block/slope_main", "x": 180, "y": 270, "uvlock": true},	
+		
+        "facing=north,half=top,shape=outer_right":  {"textures": {"0": "minecraft:block/cobblestone","particle": "minecraft:block/cobblestone"},"model":"pupmod:block/corner_in_main","x": 180, "y": 180, "uvlock": true},
+        "facing=south,half=top,shape=outer_right": {"textures": {"0": "minecraft:block/cobblestone","particle": "minecraft:block/cobblestone"},"model":"pupmod:block/corner_in_main","x": 180, "y": 0, "uvlock": true},
+        "facing=east,half=top,shape=outer_right": {"textures": {"0": "minecraft:block/cobblestone","particle": "minecraft:block/cobblestone"},"model":"pupmod:block/corner_in_main","x": 180, "y": 270, "uvlock": true},
+		"facing=west,half=top,shape=outer_right": {"textures": {"0": "minecraft:block/cobblestone","particle": "minecraft:block/cobblestone"},"model":"pupmod:block/corner_in_main","x": 180, "y": 90, "uvlock": true},
+			
+        "facing=north,half=top,shape=outer_left":  {"textures": {"0": "minecraft:block/cobblestone","particle": "minecraft:block/cobblestone"},"model":"pupmod:block/corner_in_main","x": 180, "y": 90, "uvlock": true},
+        "facing=south,half=top,shape=outer_left":  {"textures": {"0": "minecraft:block/cobblestone","particle": "minecraft:block/cobblestone"},"model":"pupmod:block/corner_in_main","x": 180, "y": 270, "uvlock": true},
+        "facing=east,half=top,shape=outer_left": {"textures": {"0": "minecraft:block/cobblestone","particle": "minecraft:block/cobblestone"},"model":"pupmod:block/corner_in_main","x": 180, "y": 180, "uvlock": true},
+        "facing=west,half=top,shape=outer_left": {"textures": {"0": "minecraft:block/cobblestone","particle": "minecraft:block/cobblestone"},"model":"pupmod:block/corner_in_main","x": 180, "y": 0, "uvlock": true},
+        
+        "facing=west,half=top,shape=inner_right":  {"textures": {"0": "minecraft:block/cobblestone","particle": "minecraft:block/cobblestone"},"model":"pupmod:block/corner_out_main","x": 180, "y": 90, "uvlock": true},
+        "facing=east,half=top,shape=inner_right":  {"textures": {"0": "minecraft:block/cobblestone","particle": "minecraft:block/cobblestone"},"model":"pupmod:block/corner_out_main","x": 180, "y": 270, "uvlock": true},
+        "facing=north,half=top,shape=inner_right": {"textures": {"0": "minecraft:block/cobblestone","particle": "minecraft:block/cobblestone"},"model":"pupmod:block/corner_out_main","x": 180, "y": 180, "uvlock": true},
+        "facing=south,half=top,shape=inner_right": {"textures": {"0": "minecraft:block/cobblestone","particle": "minecraft:block/cobblestone"},"model":"pupmod:block/corner_out_main","x": 180, "y": 0, "uvlock": true},	
+        
+        "facing=west,half=top,shape=inner_left":  {"textures": {"0": "minecraft:block/cobblestone","particle": "minecraft:block/cobblestone"},"model":"pupmod:block/corner_out_main","x": 180, "y": 0, "uvlock": true},
+        "facing=east,half=top,shape=inner_left":  {"textures": {"0": "minecraft:block/cobblestone","particle": "minecraft:block/cobblestone"},"model":"pupmod:block/corner_out_main","x": 180, "y": 180, "uvlock": true},
+        "facing=north,half=top,shape=inner_left": {"textures": {"0": "minecraft:block/cobblestone","particle": "minecraft:block/cobblestone"},"model":"pupmod:block/corner_out_main","x": 180, "y": 90, "uvlock": true},
+        "facing=south,half=top,shape=inner_left": {"textures": {"0": "minecraft:block/cobblestone","particle": "minecraft:block/cobblestone"},"model":"pupmod:block/corner_out_main","x": 180, "y": 270, "uvlock": true},
+        
+        "facing=south,half=bottom,shape=straight":  {"model": "pupmod:block/slope_main", "x": 0, "y": 180, "uvlock": true},
+        "facing=east,half=bottom,shape=straight": {"model": "pupmod:block/slope_main", "x": 0, "y": 90, "uvlock": true},
+        "facing=north,half=bottom,shape=straight": {"model": "pupmod:block/slope_main", "x": 0, "y": 0, "uvlock": true},
+		"facing=west,half=bottom,shape=straight": {"model": "pupmod:block/slope_main", "x": 0, "y": 270, "uvlock": true}
+	}
+}  

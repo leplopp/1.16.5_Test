@@ -1,0 +1,7 @@
+{
+  "parent": "pupmod:block/slope",
+  "textures": {
+    "0": "minecraft:block/cobblestone",
+    "particle": "minecraft:block/cobblestone"
+  }
+}
