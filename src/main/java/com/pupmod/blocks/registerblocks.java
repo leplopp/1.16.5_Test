@@ -113,11 +113,10 @@ public class registerblocks {
 					.harvestTool(ToolType.PICKAXE).strength(3f).sound(SoundType.STONE).noOcclusion()));
 
 	//fluids
-/*
 	@SuppressWarnings("deprecation")
 	public static final RegistryObject<FlowingFluidBlock> PINK_FLUID = BLOCKS.register("pink_fluid",
 			() -> new FlowingFluidBlock(liquid.pink_fluid, AbstractBlock.Properties.of(Material.WATER, MaterialColor.COLOR_PINK).noCollission().strength(100.0F).noDrops()));
-*/
+
 	// slope
 	public static final RegistryObject<Block> SLOPE_COBBLESTONE = BLOCKS.register("cobblestone_slope",
 			() -> new MianSlope(Blocks.COBBLESTONE.defaultBlockState(), AbstractBlock.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).harvestLevel(1)

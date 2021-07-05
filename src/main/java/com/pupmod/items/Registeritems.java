@@ -2,6 +2,7 @@ package com.pupmod.items;
 
 import com.pupmod.pupmod;
 import com.pupmod.entitys.entitycreatortypes;
+import com.pupmod.lists.liquid;
 import com.pupmod.render.RenderNiggi;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.inventory.EquipmentSlotType;
@@ -89,7 +90,7 @@ public class Registeritems {
 					new Item.Properties().tab(pupmod.PUP_TAB_ITEMS)));
 	// Liquid
 	public static final RegistryObject<Item> PINK_LIQUID = ITEMS.register("pink_liquid",
-			() -> new BucketItem(Fluids.WATER.delegate, new Item.Properties().tab(pupmod.PUP_TAB_ITEMS).stacksTo(1)));
+			() -> new BucketItem(liquid.pink_fluid, new Item.Properties().tab(pupmod.PUP_TAB_ITEMS).stacksTo(1)));
 	public static final RegistryObject<Item> PUKE_LIQUIT = ITEMS.register("puke_liquid",
 			() -> new Item(new Item.Properties().tab(pupmod.PUP_TAB_ITEMS).stacksTo(1)));
 	public static final RegistryObject<Item> SNOT_LIQUID = ITEMS.register("snot_liquid",
