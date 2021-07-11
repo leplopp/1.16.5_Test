@@ -4,6 +4,8 @@ import com.pupmod.fluids.FluidPink;
 import com.pupmod.fluids.FluidPink.Flowing;
 import com.pupmod.fluids.FluidPink.Source;
 import com.pupmod.fluids.RegistryFluids;
+
+import net.minecraft.data.FluidTagsProvider;
 import net.minecraft.fluid.FlowingFluid;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.FluidState;
@@ -22,18 +24,18 @@ public class liquid {
 	   public static final FlowingFluid pink_fluid = (Source) new FluidPink.Source().setRegistryName(RegistryFluids.location("pink_fluid"));
 	   public static final FlowingFluid flowing_pink_fluid = (Flowing) new FluidPink.Flowing().setRegistryName(RegistryFluids.location("flowing_pink_fluid"));
 	   
-	  /* static {
+	  static {
 		      for(Fluid fluid : Registry.FLUID) {
 		         for(FluidState fluidstate : fluid.getStateDefinition().getPossibleStates()) {
 		            Fluid.FLUID_STATE_REGISTRY.add(fluidstate);
 		         }
 		      }
 
-		   }*/
+		   }
 
 	   public static class Tag {
 		   
-		   protected static final TagRegistry<Fluid> HELPER = TagRegistryManager.create(new ResourceLocation("fluid"), ITagCollectionSupplier::getFluids);
+	   protected static final TagRegistry<Fluid> HELPER = TagRegistryManager.create(new ResourceLocation("fluid"), ITagCollectionSupplier::getFluids);
 		   
 		   public static final ITag.INamedTag<Fluid> FLUID_PINK = bind("pink_fluid");
 
@@ -44,8 +46,7 @@ public class liquid {
 }
     	
 		   
-		   /*public static final Tags.IOptionalNamedTag<Fluid> PINK_FLUID = 
-    			  FluidTags.createOptional(RegistryFluids.location("pink_fluid"));
+		   /*public static final Tags.IOptionalNamedTag<Fluid> FLUID_PINK = FluidTags.createOptional(RegistryFluids.location("pink_fluid"));
       }
 } */
 

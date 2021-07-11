@@ -1,13 +1,10 @@
 package com.pupmod.fluids;
 
 import java.util.Random;
-
-import javax.annotation.Nullable;
 import com.pupmod.blocks.registerblocks;
 import com.pupmod.items.Registeritems;
 import com.pupmod.lists.liquid;
 import com.pupmod.lists.liquid.Tag;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.FlowingFluidBlock;
@@ -30,7 +27,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fluids.FluidAttributes;
 
-public abstract class FluidPink extends FlowingFluid{
+public abstract class FluidPink extends FlowingFluid implements IFluidLoggable{
 
 	@Override
 	public Fluid getFlowing() {
