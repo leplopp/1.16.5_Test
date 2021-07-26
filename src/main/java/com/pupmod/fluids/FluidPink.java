@@ -4,31 +4,14 @@ import java.util.Random;
 import com.pupmod.blocks.registerblocks;
 import com.pupmod.items.Registeritems;
 import com.pupmod.lists.liquid;
-import com.pupmod.lists.liquid.Tag;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.FlowingFluidBlock;
-import net.minecraft.fluid.FlowingFluid;
-import net.minecraft.fluid.Fluid;
-import net.minecraft.fluid.FluidState;
-import net.minecraft.item.Item;
-import net.minecraft.particles.IParticleData;
-import net.minecraft.particles.ParticleTypes;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.Direction;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvents;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.IWorldReader;
-import net.minecraft.world.World;
+import net.minecraft.world.level.material.FlowingFluid;
+import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fluids.FluidAttributes;
 
-public abstract class FluidPink extends FlowingFluid implements IFluidLoggable{
-
+public abstract class FluidPink extends FlowingFluid  {
+/*
 	@Override
 	public Fluid getFlowing() {
 		return liquid.flowing_pink_fluid;
@@ -145,5 +128,5 @@ public abstract class FluidPink extends FlowingFluid implements IFluidLoggable{
 
 		 
 	 }
-
+*/
 }

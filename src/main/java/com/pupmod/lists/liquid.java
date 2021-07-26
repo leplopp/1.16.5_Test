@@ -4,23 +4,17 @@ import com.pupmod.fluids.FluidPink;
 import com.pupmod.fluids.FluidPink.Flowing;
 import com.pupmod.fluids.FluidPink.Source;
 import com.pupmod.fluids.RegistryFluids;
-
-import net.minecraft.data.FluidTagsProvider;
-import net.minecraft.fluid.FlowingFluid;
-import net.minecraft.fluid.Fluid;
-import net.minecraft.fluid.FluidState;
-import net.minecraft.tags.FluidTags;
-import net.minecraft.tags.ITag;
-import net.minecraft.tags.ITagCollectionSupplier;
-import net.minecraft.tags.TagRegistry;
-import net.minecraft.tags.TagRegistryManager;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.core.Registry;
+import net.minecraft.world.level.material.FlowingFluid;
+import net.minecraft.world.level.material.Fluid;
+import net.minecraft.world.level.material.FluidState;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.Tags.IOptionalNamedTag;
 
 public class liquid {
-
+	
+}
+/*
 	   public static final FlowingFluid pink_fluid = (Source) new FluidPink.Source().setRegistryName(RegistryFluids.location("pink_fluid"));
 	   public static final FlowingFluid flowing_pink_fluid = (Flowing) new FluidPink.Flowing().setRegistryName(RegistryFluids.location("flowing_pink_fluid"));
 	   

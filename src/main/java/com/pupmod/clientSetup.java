@@ -21,7 +21,7 @@ import net.minecraftforge.fmlclient.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
-@Mod.EventBusSubscriber(modid = pupmod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+//@Mod.EventBusSubscriber(modid = pupmod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class clientSetup {
 	
 	public static void init(final FMLClientSetupEvent event) { 

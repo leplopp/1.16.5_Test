@@ -1,86 +1,95 @@
 package com.pupmod.items;
 
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
-
 import com.google.common.collect.Sets;
 import com.google.common.collect.ImmutableMap.Builder;
-
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.RotatedPillarBlock;
-import net.minecraft.block.material.Material;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.IItemTier;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemUseContext;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvents;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.AxeItem;
+import net.minecraft.world.item.DiggerItem;
+import net.minecraft.world.item.HoneycombItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Item.Properties;
+import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Tier;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.WeatheringCopper;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Material;
 import net.minecraftforge.common.ToolType;
 
-public class pup_axe extends ToolItem {
+public class pup_axe extends DiggerItem {
 
-	private static final Set<Material> DIGGABLE_MATERIALS = Sets.newHashSet(Material.WOOD, Material.NETHER_WOOD,
-			Material.PLANT, Material.REPLACEABLE_PLANT, Material.BAMBOO, Material.VEGETABLE);
-	private static final Set<Block> OTHER_DIGGABLE_BLOCKS = Sets.newHashSet(Blocks.LADDER, Blocks.SCAFFOLDING,
-			Blocks.OAK_BUTTON, Blocks.SPRUCE_BUTTON, Blocks.BIRCH_BUTTON, Blocks.JUNGLE_BUTTON, Blocks.DARK_OAK_BUTTON,
-			Blocks.ACACIA_BUTTON, Blocks.CRIMSON_BUTTON, Blocks.WARPED_BUTTON);
-	protected static final Map<Block, Block> STRIPABLES = (new Builder<Block, Block>())
-			.put(Blocks.OAK_WOOD, Blocks.STRIPPED_OAK_WOOD).put(Blocks.OAK_LOG, Blocks.STRIPPED_OAK_LOG)
-			.put(Blocks.DARK_OAK_WOOD, Blocks.STRIPPED_DARK_OAK_WOOD)
-			.put(Blocks.DARK_OAK_LOG, Blocks.STRIPPED_DARK_OAK_LOG).put(Blocks.ACACIA_WOOD, Blocks.STRIPPED_ACACIA_WOOD)
-			.put(Blocks.ACACIA_LOG, Blocks.STRIPPED_ACACIA_LOG).put(Blocks.BIRCH_WOOD, Blocks.STRIPPED_BIRCH_WOOD)
-			.put(Blocks.BIRCH_LOG, Blocks.STRIPPED_BIRCH_LOG).put(Blocks.JUNGLE_WOOD, Blocks.STRIPPED_JUNGLE_WOOD)
-			.put(Blocks.JUNGLE_LOG, Blocks.STRIPPED_JUNGLE_LOG).put(Blocks.SPRUCE_WOOD, Blocks.STRIPPED_SPRUCE_WOOD)
-			.put(Blocks.SPRUCE_LOG, Blocks.STRIPPED_SPRUCE_LOG).put(Blocks.WARPED_STEM, Blocks.STRIPPED_WARPED_STEM)
-			.put(Blocks.WARPED_HYPHAE, Blocks.STRIPPED_WARPED_HYPHAE)
-			.put(Blocks.CRIMSON_STEM, Blocks.STRIPPED_CRIMSON_STEM)
-			.put(Blocks.CRIMSON_HYPHAE, Blocks.STRIPPED_CRIMSON_HYPHAE).build();
+	   protected static final Map<Block, Block> STRIPPABLES = (new Builder<Block, Block>()).put(Blocks.OAK_WOOD, Blocks.STRIPPED_OAK_WOOD).put(Blocks.OAK_LOG, Blocks.STRIPPED_OAK_LOG).put(Blocks.DARK_OAK_WOOD, Blocks.STRIPPED_DARK_OAK_WOOD).put(Blocks.DARK_OAK_LOG, Blocks.STRIPPED_DARK_OAK_LOG).put(Blocks.ACACIA_WOOD, Blocks.STRIPPED_ACACIA_WOOD).put(Blocks.ACACIA_LOG, Blocks.STRIPPED_ACACIA_LOG).put(Blocks.BIRCH_WOOD, Blocks.STRIPPED_BIRCH_WOOD).put(Blocks.BIRCH_LOG, Blocks.STRIPPED_BIRCH_LOG).put(Blocks.JUNGLE_WOOD, Blocks.STRIPPED_JUNGLE_WOOD).put(Blocks.JUNGLE_LOG, Blocks.STRIPPED_JUNGLE_LOG).put(Blocks.SPRUCE_WOOD, Blocks.STRIPPED_SPRUCE_WOOD).put(Blocks.SPRUCE_LOG, Blocks.STRIPPED_SPRUCE_LOG).put(Blocks.WARPED_STEM, Blocks.STRIPPED_WARPED_STEM).put(Blocks.WARPED_HYPHAE, Blocks.STRIPPED_WARPED_HYPHAE).put(Blocks.CRIMSON_STEM, Blocks.STRIPPED_CRIMSON_STEM).put(Blocks.CRIMSON_HYPHAE, Blocks.STRIPPED_CRIMSON_HYPHAE).build();
 
-	public pup_axe(float g, float f, IItemTier item, Properties prob) {
-		super(g, f, item, OTHER_DIGGABLE_BLOCKS, prob.addToolType(ToolType.AXE, item.getLevel()));
-	}
+	   public pup_axe(Tier p_40521_, float p_40522_, float p_40523_, Item.Properties p_40524_) {
+	      super(p_40522_, p_40523_, p_40521_, BlockTags.MINEABLE_WITH_AXE, p_40524_.addToolType(net.minecraftforge.common.ToolType.AXE, p_40521_.getLevel()));
+	   }
 
-	public float getDestroySpeed(ItemStack stack, BlockState state) {
-		Material material = state.getMaterial();
-		return DIGGABLE_MATERIALS.contains(material) ? this.speed : super.getDestroySpeed(stack, state);
-	}
+	 public InteractionResult useOn(UseOnContext p_40529_) {
+	      Level level = p_40529_.getLevel();
+	      BlockPos blockpos = p_40529_.getClickedPos();
+	      Player player = p_40529_.getPlayer();
+	      BlockState blockstate = level.getBlockState(blockpos);
+	      Optional<BlockState> optional = Optional.ofNullable(blockstate.getToolModifiedState(level, blockpos, player, p_40529_.getItemInHand(),  net.minecraftforge.common.ToolType.AXE));
+	      Optional<BlockState> optional1 = WeatheringCopper.getPrevious(blockstate);
+	      Optional<BlockState> optional2 = Optional.ofNullable(HoneycombItem.WAX_OFF_BY_BLOCK.get().get(blockstate.getBlock())).map((p_150694_) -> {
+	         return p_150694_.withPropertiesOf(blockstate);
+	      });
+	      ItemStack itemstack = p_40529_.getItemInHand();
+	      Optional<BlockState> optional3 = Optional.empty();
+	      if (optional.isPresent()) {
+	         level.playSound(player, blockpos, SoundEvents.AXE_STRIP, SoundSource.BLOCKS, 1.0F, 1.0F);
+	         optional3 = optional;
+	      } else if (optional1.isPresent()) {
+	         level.playSound(player, blockpos, SoundEvents.AXE_SCRAPE, SoundSource.BLOCKS, 1.0F, 1.0F);
+	         level.levelEvent(player, 3005, blockpos, 0);
+	         optional3 = optional1;
+	      } else if (optional2.isPresent()) {
+	         level.playSound(player, blockpos, SoundEvents.AXE_WAX_OFF, SoundSource.BLOCKS, 1.0F, 1.0F);
+	         level.levelEvent(player, 3004, blockpos, 0);
+	         optional3 = optional2;
+	      }
 
-	public ActionResultType useOn(ItemUseContext con) {
-		World world = con.getLevel();
-		BlockPos blockpos = con.getClickedPos();
-		BlockState blockstate = world.getBlockState(blockpos);
-		BlockState block = blockstate.getToolModifiedState(world, blockpos, con.getPlayer(), con.getItemInHand(),
-				net.minecraftforge.common.ToolType.AXE);
-		if (block != null) {
-			PlayerEntity playerentity = con.getPlayer();
-			world.playSound(playerentity, blockpos, SoundEvents.AXE_STRIP, SoundCategory.BLOCKS, 1.0F, 1.0F);
-			if (!world.isClientSide) {
-				world.setBlock(blockpos, block, 11);
-				if (playerentity != null) {
-					con.getItemInHand().hurtAndBreak(1, playerentity, (player) -> {
-						player.broadcastBreakEvent(con.getHand());
-					});
-				}
-			}
+	      if (optional3.isPresent()) {
+	         if (player instanceof ServerPlayer) {
+	            CriteriaTriggers.ITEM_USED_ON_BLOCK.trigger((ServerPlayer)player, blockpos, itemstack);
+	         }
 
-			return ActionResultType.sidedSuccess(world.isClientSide);
-		} else {
-			return ActionResultType.PASS;
-		}
-	}
+	         level.setBlock(blockpos, optional3.get(), 11);
+	         if (player != null) {
+	            itemstack.hurtAndBreak(1, player, (p_150686_) -> {
+	               p_150686_.broadcastBreakEvent(p_40529_.getHand());
+	            });
+	         }
 
-	@javax.annotation.Nullable
-	public static BlockState getAxeStrippingState(BlockState originalState) {
-		Block block = STRIPABLES.get(originalState.getBlock());
-		return block != null
-				? block.defaultBlockState().setValue(RotatedPillarBlock.AXIS,
-						originalState.getValue(RotatedPillarBlock.AXIS))
-				: null;
-	}
+	         return InteractionResult.sidedSuccess(level.isClientSide);
+	      } else {
+	         return InteractionResult.PASS;
+	      }
+	   }
 
+	   @javax.annotation.Nullable
+	   public static BlockState getAxeStrippingState(BlockState originalState) {
+	      Block block = STRIPPABLES.get(originalState.getBlock());
+	      return block != null ? block.defaultBlockState().setValue(RotatedPillarBlock.AXIS, originalState.getValue(RotatedPillarBlock.AXIS)) : null;
+	   }
+
+	   private Optional<BlockState> getStripped(BlockState p_150691_) {
+	      return Optional.ofNullable(STRIPPABLES.get(p_150691_.getBlock())).map((p_150689_) -> {
+	         return p_150689_.defaultBlockState().setValue(RotatedPillarBlock.AXIS, p_150691_.getValue(RotatedPillarBlock.AXIS));
+	      });
+	   }
 }

@@ -1,13 +1,8 @@
 package com.pupmod.fluids;
 
 import com.pupmod.pupmod;
-import com.pupmod.fluids.FluidPink.Flowing;
-import com.pupmod.fluids.FluidPink.Source;
 import com.pupmod.lists.liquid;
-import net.minecraft.fluid.Fluid;
-import net.minecraft.fluid.Fluids;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.registry.DefaultedRegistry;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;

@@ -65,15 +65,16 @@ public class pupmod {
 					new BlockItem(block, new Item.Properties().tab(PUP_TAB)).setRegistryName(block.getRegistryName()));
 		});	}
 			
-	@SubscribeEvent
+	/*@SubscribeEvent
+	
 	public static void onRegisterEntities(final RegistryEvent.Register<EntityType<?>> event) {
 		pupEggs.initSpawnEggs();
-	}
+	}*/
 	
-	@SubscribeEvent
+	/*@SubscribeEvent
 	public static void RegisterFluids(final RegistryEvent.Register<Fluid> event) {
 		event.getRegistry().registerAll(	);
-	}
+	}*/
 	
 	public static ResourceLocation prefix(String name){return new ResourceLocation(MODID.toLowerCase(Locale.ROOT), name);}
 /*

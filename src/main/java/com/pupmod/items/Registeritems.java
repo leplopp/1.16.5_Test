@@ -5,7 +5,10 @@ import com.pupmod.entitys.entitycreatortypes;
 import com.pupmod.lists.liquid;
 import com.pupmod.render.RenderNiggi;
 
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.MilkBucketItem;
 import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -62,29 +65,29 @@ public class Registeritems {
 	public static final RegistryObject<Item> PUP_SWORD = ITEMS.register("sword",
 			() -> new pupsword(ItemTier.PUP, 100, 100f, new Item.Properties().tab(pupmod.PUP_TAB_ITEMS)));
 	public static final RegistryObject<Item> PUP_PICKAXE = ITEMS.register("pickaxe",
-			() -> new puppickaxe(100, 100f, ItemTier.PUP, new Item.Properties().tab(pupmod.PUP_TAB_ITEMS)));
+			() -> new puppickaxe(ItemTier.PUP, 100, 100f, new Item.Properties().tab(pupmod.PUP_TAB_ITEMS)));
 	public static final RegistryObject<Item> PUP_SPADE = ITEMS.register("spade",
-			() -> new pup_spade(100, 100f, ItemTier.PUP, new Item.Properties().tab(pupmod.PUP_TAB_ITEMS)));
+			() -> new pup_spade(ItemTier.PUP, 100, 100f, new Item.Properties().tab(pupmod.PUP_TAB_ITEMS)));
 	public static final RegistryObject<Item> PUP_AXE = ITEMS.register("axe",
-			() -> new pup_axe(100, 100f, ItemTier.PUP, new Item.Properties().tab(pupmod.PUP_TAB_ITEMS)));
+			() -> new pup_axe(ItemTier.PUP, 100, 100f, new Item.Properties().tab(pupmod.PUP_TAB_ITEMS)));
 	public static final RegistryObject<Item> PUP_HOE = ITEMS.register("hoe",
-			() -> new pup_hoe(100, 100f, ItemTier.PUP, new Item.Properties().tab(pupmod.PUP_TAB_ITEMS)));
+			() -> new pup_hoe(ItemTier.PUP, 100, 100f, new Item.Properties().tab(pupmod.PUP_TAB_ITEMS)));
 	// armor
 	public static final RegistryObject<Item> PUP_HELMET = ITEMS.register("helmet",
-			() -> new armoritem(armormaterial.PUP, EquipmentSlotType.HEAD,
+			() -> new armoritem(armormaterial.PUP, EquipmentSlot.HEAD,
 					new Item.Properties().tab(pupmod.PUP_TAB_ITEMS)));
 	public static final RegistryObject<Item> PUP_CHESTPLATE = ITEMS.register("chestplate",
-			() -> new armoritem(armormaterial.PUP, EquipmentSlotType.CHEST,
+			() -> new armoritem(armormaterial.PUP, EquipmentSlot.CHEST,
 					new Item.Properties().tab(pupmod.PUP_TAB_ITEMS)));
 	public static final RegistryObject<Item> PUP_LEGGINGS = ITEMS.register("hose",
-			() -> new armoritem(armormaterial.PUP, EquipmentSlotType.LEGS,
+			() -> new armoritem(armormaterial.PUP, EquipmentSlot.LEGS,
 					new Item.Properties().tab(pupmod.PUP_TAB_ITEMS)));
 	public static final RegistryObject<Item> PUP_BOOTS = ITEMS.register("boots", 
-			() -> new armoritem(armormaterial.PUP,EquipmentSlotType.FEET, 
+			() -> new armoritem(armormaterial.PUP,EquipmentSlot.FEET, 
 					new Item.Properties().tab(pupmod.PUP_TAB_ITEMS)));
 	// Liquid
-	public static final RegistryObject<Item> PINK_LIQUID = ITEMS.register("pink_liquid",
-			() -> new BucketItem(liquid.pink_fluid, new Item.Properties().tab(pupmod.PUP_TAB_ITEMS).stacksTo(1)));
+	/*public static final RegistryObject<Item> PINK_LIQUID = ITEMS.register("pink_liquid",
+			() -> new BucketItem(liquid.pink_fluid, new Item.Properties().tab(pupmod.PUP_TAB_ITEMS).stacksTo(1)));*/
 	public static final RegistryObject<Item> PUKE_LIQUIT = ITEMS.register("puke_liquid",
 			() -> new Item(new Item.Properties().tab(pupmod.PUP_TAB_ITEMS).stacksTo(1)));
 	public static final RegistryObject<Item> SNOT_LIQUID = ITEMS.register("snot_liquid",
@@ -92,7 +95,7 @@ public class Registeritems {
 	public static final RegistryObject<Item> BLOOD_LIQUID = ITEMS.register("blood_liquid",
 			() -> new Item(new Item.Properties().tab(pupmod.PUP_TAB_ITEMS).stacksTo(1)));
 	// Eggs
-	public static final RegistryObject<pupEggs> NIGGI_EGG = ITEMS.register("niggi_egg",
+	/*public static final RegistryObject<pupEggs> NIGGI_EGG = ITEMS.register("niggi_egg",
 			() -> new pupEggs(entitycreatortypes.NIGGI, 0x00000, 0x00000,
 					new Item.Properties().tab(pupmod.PUP_TAB_ITEMS).stacksTo(1)));
 	public static final RegistryObject<pupEggs> TEST_EGG = ITEMS.register("test_egg",
@@ -115,7 +118,7 @@ public class Registeritems {
 					new Item.Properties().tab(pupmod.PUP_TAB_ITEMS).stacksTo(1)));
 	public static final RegistryObject<pupEggs> RING_EGG = ITEMS.register("ringi_egg",
 			() -> new pupEggs(entitycreatortypes.RINGENTITY, 0x00000, 0x00000,
-					new Item.Properties().tab(pupmod.PUP_TAB_ITEMS).stacksTo(1)));
+					new Item.Properties().tab(pupmod.PUP_TAB_ITEMS).stacksTo(1)));*/
 	/*public static final RegistryObject<pupEggs> STOP_EGG = ITEMS.register("stop_egg",
 			() -> new pupEggs(entitycreatortypes.STOPI, 0x00000, 0x00000,
 					new Item.Properties().tab(pupmod.PUP_TAB_ITEMS).stacksTo(1)));**/

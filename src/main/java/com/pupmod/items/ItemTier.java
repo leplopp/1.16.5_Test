@@ -3,11 +3,12 @@ package com.pupmod.items;
 
 import java.util.function.Supplier;
 
-import net.minecraft.item.IItemTier;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.util.LazyValue;
+import net.minecraft.util.LazyLoadedValue;
+import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraftforge.items.IItemHandler;
 
-public enum ItemTier implements IItemTier{
+public enum ItemTier implements Tier{
 	
 	PUP(5, 1000000000, 10000000000000.0F, 90000000000000000000000000000.0F, 5, () -> {
         return Ingredient.of(Registeritems.PINK_BRICK.get());  });
@@ -17,7 +18,7 @@ public enum ItemTier implements IItemTier{
 	   private final float speed;
 	   private final float damage;
 	   private final int enchantmentValue;
-	   private final LazyValue<Ingredient> repairIngredient;
+	   private final LazyLoadedValue<Ingredient> repairIngredient;
 	
 	ItemTier(int harvestLevelIn, int maxUsesIn, float efficiencyIn, float attackDamageIn, int enchantabilityIn, Supplier<Ingredient> repairMaterialIn) {
         this.level = harvestLevelIn;
@@ -25,12 +26,12 @@ public enum ItemTier implements IItemTier{
         this.speed = efficiencyIn;
         this.damage = attackDamageIn;
         this.enchantmentValue = enchantabilityIn;
-        this.repairIngredient = new LazyValue<Ingredient>(repairMaterialIn);
+        this.repairIngredient = new LazyLoadedValue<Ingredient>(repairMaterialIn);
     }
 
 	@Override
 	public int getUses() {
-		return this.uses;
+		return this.uses; 
 	}
 
 	@Override

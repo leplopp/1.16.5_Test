@@ -1,71 +1,90 @@
 package com.pupmod.items;
 
 import java.util.Map;
-import java.util.Set;
-
+import java.util.function.Consumer;
+import java.util.function.Predicate;
 import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Maps;
+import com.mojang.datafixers.util.Pair;
+import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.DiggerItem;
+import net.minecraft.world.item.HoeItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.core.Direction;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.IItemTier;
-import net.minecraft.item.ItemUseContext;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Direction;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvents;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
-import net.minecraftforge.common.ToolType;
+public class pup_hoe extends DiggerItem {
 
-public class pup_hoe extends ToolItem {
+	protected static final Map<Block, Pair<Predicate<UseOnContext>, Consumer<UseOnContext>>> TILLABLES = Maps.newHashMap(ImmutableMap.of(Blocks.GRASS_BLOCK, Pair.of(HoeItem::onlyIfAirAbove, changeIntoState(Blocks.FARMLAND.defaultBlockState())), Blocks.DIRT_PATH, Pair.of(HoeItem::onlyIfAirAbove, changeIntoState(Blocks.FARMLAND.defaultBlockState())), Blocks.DIRT, Pair.of(HoeItem::onlyIfAirAbove, changeIntoState(Blocks.FARMLAND.defaultBlockState())), Blocks.COARSE_DIRT, Pair.of(HoeItem::onlyIfAirAbove, changeIntoState(Blocks.DIRT.defaultBlockState())), Blocks.ROOTED_DIRT, Pair.of((p_150861_) -> {
+	      return true;
+	   }, changeIntoStateAndDropItem(Blocks.DIRT.defaultBlockState(), Items.HANGING_ROOTS))));
 
-	private static final Set<Block> DIGGABLES = ImmutableSet.of(Blocks.NETHER_WART_BLOCK, Blocks.WARPED_WART_BLOCK,
-			Blocks.HAY_BLOCK, Blocks.DRIED_KELP_BLOCK, Blocks.TARGET, Blocks.SHROOMLIGHT, Blocks.SPONGE,
-			Blocks.WET_SPONGE, Blocks.JUNGLE_LEAVES, Blocks.OAK_LEAVES, Blocks.SPRUCE_LEAVES, Blocks.DARK_OAK_LEAVES,
-			Blocks.ACACIA_LEAVES, Blocks.BIRCH_LEAVES);
-	protected static final Map<Block, BlockState> TILLABLES = Maps.newHashMap(ImmutableMap.of(Blocks.GRASS_BLOCK,
-			Blocks.FARMLAND.defaultBlockState(), Blocks.GRASS_PATH, Blocks.FARMLAND.defaultBlockState(), Blocks.DIRT,
-			Blocks.FARMLAND.defaultBlockState(), Blocks.COARSE_DIRT, Blocks.DIRT.defaultBlockState()));
+	   public pup_hoe(Tier p_41336_, int p_41337_, float p_41338_, Item.Properties p_41339_) {
+	      super((float)p_41337_, p_41338_, p_41336_, BlockTags.MINEABLE_WITH_HOE, p_41339_.addToolType(net.minecraftforge.common.ToolType.HOE, p_41336_.getLevel()));
+	   }
 
-	public pup_hoe(float g, float f, IItemTier item, Properties prob) {
-		super(g, f, item, DIGGABLES, prob.addToolType(ToolType.HOE, item.getLevel()));
-	}
+	   public InteractionResult useOn(UseOnContext p_41341_) {
+	      Level level = p_41341_.getLevel();
+	      BlockPos blockpos = p_41341_.getClickedPos();
+	      Pair<Predicate<UseOnContext>, Consumer<UseOnContext>> pair = TILLABLES.get(level.getBlockState(blockpos).getBlock());
+	      int hook = net.minecraftforge.event.ForgeEventFactory.onHoeUse(p_41341_);
+	      if (hook != 0) return hook > 0 ? InteractionResult.SUCCESS : InteractionResult.FAIL;
+	      if (p_41341_.getClickedFace() != Direction.DOWN && level.isEmptyBlock(blockpos.above())) {
+	      if (pair == null) {
+	         return InteractionResult.PASS;
+	      } else {
+	         Predicate<UseOnContext> predicate = pair.getFirst();
+	         Consumer<UseOnContext> consumer = pair.getSecond();
+	         if (predicate.test(p_41341_)) {
+	            Player player = p_41341_.getPlayer();
+	            level.playSound(player, blockpos, SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1.0F, 1.0F);
+	            if (!level.isClientSide) {
+	               consumer.accept(p_41341_);
+	               if (player != null) {
+	                  p_41341_.getItemInHand().hurtAndBreak(1, player, (p_150845_) -> {
+	                     p_150845_.broadcastBreakEvent(p_41341_.getHand());
+	                  });
+	               }
+	            }
 
-	public ActionResultType useOn(ItemUseContext con) {
-		World world = con.getLevel();
-		BlockPos blockpos = con.getClickedPos();
-		int hook = net.minecraftforge.event.ForgeEventFactory.onHoeUse(con);
-		if (hook != 0)
-			return hook > 0 ? ActionResultType.SUCCESS : ActionResultType.FAIL;
-		if (con.getClickedFace() != Direction.DOWN && world.isEmptyBlock(blockpos.above())) {
-			BlockState blockstate = world.getBlockState(blockpos).getToolModifiedState(world, blockpos, con.getPlayer(),
-					con.getItemInHand(), ToolType.HOE);
-			if (blockstate != null) {
-				PlayerEntity playerentity = con.getPlayer();
-				world.playSound(playerentity, blockpos, SoundEvents.HOE_TILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
-				if (!world.isClientSide) {
-					world.setBlock(blockpos, blockstate, 11);
-					if (playerentity != null) {
-						con.getItemInHand().hurtAndBreak(1, playerentity, (player) -> {
-							player.broadcastBreakEvent(con.getHand());
-						});
-					}
-				}
+	            return InteractionResult.sidedSuccess(level.isClientSide);
+	         } else {
+	            return InteractionResult.PASS;
+	         }
+	      }
+	      }
 
-				return ActionResultType.sidedSuccess(world.isClientSide);
-			}
-		}
+	      return InteractionResult.PASS;
+	   }
 
-		return ActionResultType.PASS;
-	}
+	   public static Consumer<UseOnContext> changeIntoState(BlockState p_150859_) {
+	      return (p_150848_) -> {
+	         p_150848_.getLevel().setBlock(p_150848_.getClickedPos(), p_150859_, 11);
+	      };
+	   }
 
-	@javax.annotation.Nullable
-	public static BlockState getHoeTillingState(BlockState originalState) {
-		return TILLABLES.get(originalState.getBlock());
-	}
+	   public static Consumer<UseOnContext> changeIntoStateAndDropItem(BlockState p_150850_, ItemLike p_150851_) {
+	      return (p_150855_) -> {
+	         p_150855_.getLevel().setBlock(p_150855_.getClickedPos(), p_150850_, 11);
+	         Block.popResourceFromFace(p_150855_.getLevel(), p_150855_.getClickedPos(), p_150855_.getClickedFace(), new ItemStack(p_150851_));
+	      };
+	   }
+
+	   public static boolean onlyIfAirAbove(UseOnContext p_150857_) {
+	      return p_150857_.getClickedFace() != Direction.DOWN && p_150857_.getLevel().getBlockState(p_150857_.getClickedPos().above()).isAir();
+	   }
 
 }

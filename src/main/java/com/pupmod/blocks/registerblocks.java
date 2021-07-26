@@ -110,11 +110,11 @@ public class registerblocks {
 			() -> new invisibleblock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).harvestLevel(1)
 					.harvestTool(ToolType.PICKAXE).strength(3f).sound(SoundType.STONE).noOcclusion()));
 
-	//fluids
+	/*//fluids
 	@SuppressWarnings("deprecation")
 	public static final RegistryObject<LiquidBlock> PINK_FLUID = BLOCKS.register("pink_fluid",
 			() -> new LiquidBlock(liquid.pink_fluid, BlockBehaviour.Properties.of(Material.WATER, MaterialColor.COLOR_PINK).noCollission().strength(100.0F).noDrops()));
-
+*/
 	// slope
 	public static final RegistryObject<Block> SLOPE_COBBLESTONE = BLOCKS.register("cobblestone_slope",
 			() -> new MianSlope(Blocks.COBBLESTONE.defaultBlockState(), BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).harvestLevel(1)

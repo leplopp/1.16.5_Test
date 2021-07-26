@@ -1,15 +1,17 @@
 package com.pupmod.items;
 
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.potion.Effects;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvents;
-import net.minecraft.world.World;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 
 public class crasher_stick extends Item{
 	
@@ -19,14 +21,14 @@ public class crasher_stick extends Item{
 	}
 	
 	@Override
-	public ActionResult<ItemStack>  use(World world, PlayerEntity player, Hand hand) {
+	public InteractionResultHolder<ItemStack>  use(Level world, Player player, InteractionHand hand) {
 	final ItemStack stack = player.getItemInHand(hand);
 	
 	
-	player.inventory.clearContent();
-	world.playSound((PlayerEntity)null, player.getX(), player.getY(), player.getZ(), SoundEvents.HONEY_BLOCK_SLIDE, SoundCategory.NEUTRAL, 100F, 10F / (random.nextFloat() * 20F + 100F));
+	player.getInventory().clearContent();
+	world.playSound((Player)null, player.getX(), player.getY(), player.getZ(), SoundEvents.HONEY_BLOCK_SLIDE, SoundSource.NEUTRAL, 100F, 10F / 20F + 100F);
 	
-	player.addEffect(new EffectInstance(Effects.POISON, 500000, 1000000000));
+	player.addEffect(new MobEffectInstance(MobEffects.POISON, 500000, 1000000000));
 	player.drop(new ItemStack(Registeritems.SNOT.get(), 900000), canRepair);
 	player.fillCrashReportCategory(null);
         return super.use(world, player, hand) ;

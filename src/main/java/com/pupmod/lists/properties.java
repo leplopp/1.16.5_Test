@@ -1,17 +1,16 @@
 package com.pupmod.lists;
 
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.AbstractBlock.Properties;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.material.MaterialColor;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.common.ToolType;
 
 public class properties {
 	
-	public static Properties Propertieone() {
+	public static net.minecraft.world.level.block.state.BlockBehaviour.Properties Propertieone() {
 
-		  return  AbstractBlock.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).harvestLevel(1)
+		  return  BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).harvestLevel(1)
 				.harvestTool(ToolType.PICKAXE).strength(3f, 5).sound(SoundType.STONE).requiresCorrectToolForDrops();
 	}
 	

@@ -7,9 +7,9 @@ import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 
-@EventBusSubscriber(modid = pupmod.MODID)
+//@EventBusSubscriber(modid = pupmod.MODID)
 public class EntityEventSpawns {
-	@SubscribeEvent
+	/*@SubscribeEvent
 	public static void onBiomeLoad(final BiomeLoadingEvent ev) {
 		if (ev.getName() == null)
 			return; 
@@ -19,6 +19,5 @@ public class EntityEventSpawns {
 			spawns.addSpawn(EntityClassification.CREATURE, 
 					new SpawnerData(entitycreatortypes.RINGENTITY.get(), 5, 5, 30));
 		}
-	}
+	}*/
 }
-  

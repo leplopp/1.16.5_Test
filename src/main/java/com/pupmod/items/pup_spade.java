@@ -1,93 +1,76 @@
 package com.pupmod.items;
 
 import java.util.Map;
-import java.util.Set;
 
-import com.google.common.collect.ImmutableMap;
+import com.google.common.collect.ImmutableMap.Builder;
 import com.google.common.collect.Maps;
-import com.google.common.collect.Sets;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.CampfireBlock;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.IItemTier;
-import net.minecraft.item.ItemUseContext;
-import net.minecraft.item.ShovelItem;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Direction;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.util.SoundEvents;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
-import net.minecraftforge.common.ToolType;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.DiggerItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.context.UseOnContext;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CampfireBlock;
+import net.minecraft.world.level.block.state.BlockState;
 
-public class pup_spade extends ToolItem {
+public class pup_spade extends DiggerItem {
 
-	private static final Set<Block> DIGGABLES = Sets.newHashSet(Blocks.CLAY, Blocks.DIRT, Blocks.COARSE_DIRT,
-			Blocks.PODZOL, Blocks.FARMLAND, Blocks.GRASS_BLOCK, Blocks.GRAVEL, Blocks.MYCELIUM, Blocks.SAND,
-			Blocks.RED_SAND, Blocks.SNOW_BLOCK, Blocks.SNOW, Blocks.SOUL_SAND, Blocks.GRASS_PATH,
-			Blocks.WHITE_CONCRETE_POWDER, Blocks.ORANGE_CONCRETE_POWDER, Blocks.MAGENTA_CONCRETE_POWDER,
-			Blocks.LIGHT_BLUE_CONCRETE_POWDER, Blocks.YELLOW_CONCRETE_POWDER, Blocks.LIME_CONCRETE_POWDER,
-			Blocks.PINK_CONCRETE_POWDER, Blocks.GRAY_CONCRETE_POWDER, Blocks.LIGHT_GRAY_CONCRETE_POWDER,
-			Blocks.CYAN_CONCRETE_POWDER, Blocks.PURPLE_CONCRETE_POWDER, Blocks.BLUE_CONCRETE_POWDER,
-			Blocks.BROWN_CONCRETE_POWDER, Blocks.GREEN_CONCRETE_POWDER, Blocks.RED_CONCRETE_POWDER,
-			Blocks.BLACK_CONCRETE_POWDER, Blocks.SOUL_SOIL);
+	 protected static final Map<Block, BlockState> FLATTENABLES = Maps.newHashMap((new Builder()).put(Blocks.GRASS_BLOCK, Blocks.DIRT_PATH.defaultBlockState()).put(Blocks.DIRT, Blocks.DIRT_PATH.defaultBlockState()).put(Blocks.PODZOL, Blocks.DIRT_PATH.defaultBlockState()).put(Blocks.COARSE_DIRT, Blocks.DIRT_PATH.defaultBlockState()).put(Blocks.MYCELIUM, Blocks.DIRT_PATH.defaultBlockState()).put(Blocks.ROOTED_DIRT, Blocks.DIRT_PATH.defaultBlockState()).build());
 
-	protected static final Map<Block, BlockState> FLATTENABLES = Maps
-			.newHashMap(ImmutableMap.of(Blocks.GRASS_BLOCK, Blocks.GRASS_PATH.defaultBlockState()));
+	   public pup_spade(Tier p_43114_, float p_43115_, float p_43116_, Item.Properties p_43117_) {
+	      super(p_43115_, p_43116_, p_43114_, BlockTags.MINEABLE_WITH_SHOVEL, p_43117_.addToolType(net.minecraftforge.common.ToolType.SHOVEL, p_43114_.getLevel()));
+	   }
 
-	public pup_spade(float g, float f, IItemTier item, Properties prob) {
-		super(g, f, item, DIGGABLES, prob.addToolType(ToolType.SHOVEL, item.getLevel()));
-	}
+	   public InteractionResult useOn(UseOnContext p_43119_) {
+	      Level level = p_43119_.getLevel();
+	      BlockPos blockpos = p_43119_.getClickedPos();
+	      BlockState blockstate = level.getBlockState(blockpos);
+	      if (p_43119_.getClickedFace() == Direction.DOWN) {
+	         return InteractionResult.PASS;
+	      } else {
+	         Player player = p_43119_.getPlayer();
+	         BlockState blockstate1 = blockstate.getToolModifiedState(level, blockpos, player, p_43119_.getItemInHand(), net.minecraftforge.common.ToolType.SHOVEL);
+	         BlockState blockstate2 = null;
+	         if (blockstate1 != null && level.isEmptyBlock(blockpos.above())) {
+	            level.playSound(player, blockpos, SoundEvents.SHOVEL_FLATTEN, SoundSource.BLOCKS, 1.0F, 1.0F);
+	            blockstate2 = blockstate1;
+	         } else if (blockstate.getBlock() instanceof CampfireBlock && blockstate.getValue(CampfireBlock.LIT)) {
+	            if (!level.isClientSide()) {
+	               level.levelEvent((Player)null, 1009, blockpos, 0);
+	            }
 
-	public boolean isCorrectToolForDrops(BlockState state) {
-		return state.is(Blocks.SNOW) || state.is(Blocks.SNOW_BLOCK);
-	}
+	            CampfireBlock.dowse(p_43119_.getPlayer(), level, blockpos, blockstate);
+	            blockstate2 = blockstate.setValue(CampfireBlock.LIT, Boolean.valueOf(false));
+	         }
 
-	public ActionResultType useOn(ItemUseContext con) {
-		World world = con.getLevel();
-		BlockPos blockpos = con.getClickedPos();
-		BlockState blockstate = world.getBlockState(blockpos);
-		if (con.getClickedFace() == Direction.DOWN) {
-			return ActionResultType.PASS;
-		} else {
-			PlayerEntity playerentity = con.getPlayer();
-			BlockState blockstate1 = blockstate.getToolModifiedState(world, blockpos, playerentity,
-					con.getItemInHand(), net.minecraftforge.common.ToolType.SHOVEL);
-			BlockState blockstate2 = null;
-			if (blockstate1 != null && world.isEmptyBlock(blockpos.above())) {
-				world.playSound(playerentity, blockpos, SoundEvents.SHOVEL_FLATTEN, SoundCategory.BLOCKS, 1.0F, 1.0F);
-				blockstate2 = blockstate1;
-			} else if (blockstate.getBlock() instanceof CampfireBlock && blockstate.getValue(CampfireBlock.LIT)) {
-				if (!world.isClientSide()) {
-					world.levelEvent((PlayerEntity) null, 10090, blockpos, 0);   // <- geändert hier msmasdlkmasdjasl
-				}
+	         if (blockstate2 != null) {
+	            if (!level.isClientSide) {
+	               level.setBlock(blockpos, blockstate2, 11);
+	               if (player != null) {
+	                  p_43119_.getItemInHand().hurtAndBreak(1, player, (p_43122_) -> {
+	                     p_43122_.broadcastBreakEvent(p_43119_.getHand());
+	                  });
+	               }
+	            }
 
-				CampfireBlock.dowse(world, blockpos, blockstate);
-				blockstate2 = blockstate.setValue(CampfireBlock.LIT, Boolean.valueOf(false));
-			}
+	            return InteractionResult.sidedSuccess(level.isClientSide);
+	         } else {
+	            return InteractionResult.PASS;
+	         }
+	      }
+	   }
 
-			if (blockstate2 != null) {
-				if (!world.isClientSide) {
-					world.setBlock(blockpos, blockstate2, 11);
-					if (playerentity != null) {
-						con.getItemInHand().hurtAndBreak(1, playerentity, (end) -> {
-							end.broadcastBreakEvent(con.getHand());
-						});
-					}
-				}
-
-				return ActionResultType.sidedSuccess(world.isClientSide);
-			} else {
-				return ActionResultType.PASS;
-			}
-		}
-	}
-
-	@javax.annotation.Nullable
-	public static BlockState getShovelPathingState(BlockState originalState) {
-		return FLATTENABLES.get(originalState.getBlock());
-	}
+	   @javax.annotation.Nullable
+	   public static BlockState getShovelPathingState(BlockState originalState) {
+	      return FLATTENABLES.get(originalState.getBlock());
+	   }
 }

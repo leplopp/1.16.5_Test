@@ -1,6 +1,6 @@
 package com.pupmod.items;
 
-import net.minecraft.item.Item;
+import net.minecraft.world.item.Item;
 
 public class schniggi_coin extends Item{
 

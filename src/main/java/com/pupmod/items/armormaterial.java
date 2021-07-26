@@ -2,6 +2,7 @@ package com.pupmod.items;
 
 import java.util.function.Supplier;
 
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.LazyLoadedValue;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -13,7 +14,7 @@ import net.minecraftforge.client.event.sound.SoundEvent.SoundSourceEvent;
 
 public enum armormaterial implements ArmorMaterial{
 	
-	PUP("pup", 5000000, new int[]{999999999, 999999999, 999999999, 999999999}, 5, SoundEvents.ARMOR_EQUIP_NETHERITE, 99999999999999999999.0F, 9999999999999999999999.0F, () -> {
+	PUP("pup", 5000000, new int[]{999999999, 999999999, 999999999, 999999999}, SoundEvents.ARMOR_EQUIP_IRON , 5, 99999999999999999999.0F, 9999999999999999999999.0F, () -> {
 	      return Ingredient.of(Registeritems.PINK_BRICK.get());
 	   });
 
@@ -22,12 +23,12 @@ public enum armormaterial implements ArmorMaterial{
 	   private final int durabilityMultiplier;
 	   private final int[] slotProtections;
 	   private final int enchantmentValue;
-	   private final SoundSourceEvent sound;
+	   private final SoundEvent sound;
 	   private final float toughness;
 	   private final float knockbackResistance;
 	   private final LazyLoadedValue<Ingredient> repairIngredient;
 
-	   private armormaterial(String name, int d, int[] s, int f, SoundEvent event, float h, float j, Supplier<Ingredient> item) {
+	   private armormaterial(String name, int d, int[] s, SoundEvent event, int f, float h, float j, Supplier<Ingredient> item) {
 	      this.name = name;
 	      this.durabilityMultiplier = d;
 	      this.slotProtections = s;
@@ -42,7 +43,7 @@ public enum armormaterial implements ArmorMaterial{
 	      return HEALTH_PER_SLOT[eq.getIndex()] * this.durabilityMultiplier;
 	   }
 
-	   public int getDefenseForSlot(EquipmentSlotType eq) {
+	   public int getDefenseForSlot(EquipmentSlot eq) {
 	      return this.slotProtections[eq.getIndex()];
 	   }
 
@@ -70,6 +71,7 @@ public enum armormaterial implements ArmorMaterial{
 	   public float getKnockbackResistance() {
 	      return this.knockbackResistance;
 	   }
+
 
 
 }
