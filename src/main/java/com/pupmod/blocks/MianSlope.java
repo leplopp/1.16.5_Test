@@ -1,10 +1,11 @@
 package com.pupmod.blocks;
 
 import java.util.Random;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.StairsBlock;
 
-public class MianSlope extends StairsBlock {
+import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.state.BlockState;
+
+public class MianSlope extends StairBlock {
 	
 	private int num;
 	

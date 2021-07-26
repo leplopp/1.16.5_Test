@@ -10,7 +10,6 @@ import com.pupmod.entitys.puppigEntity;
 import com.pupmod.entitys.ringEntity;
 import com.pupmod.entitys.stopEntity;
 import com.pupmod.entitys.testEntity;
-import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;

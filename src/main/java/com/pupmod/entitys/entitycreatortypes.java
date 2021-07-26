@@ -3,17 +3,12 @@ package com.pupmod.entitys;
 import com.pupmod.items.Registeritems;
 import com.pupmod.items.pupEggs;
 import com.pupmod.*;
-import net.minecraft.entity.EntityClassification;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.player.SpawnLocationHelper;
-import net.minecraft.item.Item;
-import net.minecraft.item.SpawnEggItem;
-import net.minecraft.network.play.server.SCombatPacket.Event;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.biome.Biome;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fml.RegistryObject;
+
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.level.chunk.LevelChunk.EntityCreationType;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.server.command.ModIdArgument;
@@ -31,7 +26,7 @@ public class entitycreatortypes {
 	            .fireImmune()
 	            .build(new ResourceLocation(pupmod.MODID, "niggi").toString()));
 	 
-	  public static final RegistryObject<EntityType<testEntity>> TEST_MODEL = ENTITIE_TYPES.register("test", () -> EntityType.Builder.of(testEntity::new, EntityClassification.CREATURE)
+	  public static final RegistryObject<EntityType<testEntity>> TEST_MODEL = ENTITIE_TYPES.register("test", () -> EntityType.Builder.of(testEntity::new, .CREATURE)
 	            .sized(.5f, .6f)
 	            .setShouldReceiveVelocityUpdates(true)
 	            .build(new ResourceLocation(pupmod.MODID, "test").toString()));

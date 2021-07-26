@@ -1,10 +1,10 @@
 package com.pupmod;
 
 import net.minecraft.data.DataGenerator;
-import net.minecraft.loot.LootTables;
+import net.minecraft.data.DataProvider;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
+import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DataGen {
@@ -14,7 +14,7 @@ public class DataGen {
 	    public static void gatherData(GatherDataEvent event) {
 	        DataGenerator generator = event.getGenerator();
 	        if (event.includeServer()) {
-	            generator.addProvider(new Recipes(generator));
+	            generator.addProvider((DataProvider) new Recipes(generator));
 	            //generator.addProvider(new LootTables(generator));
 	        }
 	        if (event.includeClient()) {

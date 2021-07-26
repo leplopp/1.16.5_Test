@@ -1,5 +1,6 @@
 package com.pupmod;
 
+import org.apache.http.client.entity.EntityBuilder;
 import com.pupmod.blocks.registerblocks;
 import com.pupmod.entitys.entitycreatortypes;
 import com.pupmod.items.Registeritems;
@@ -12,12 +13,11 @@ import com.pupmod.render.puhRender;
 import com.pupmod.render.ringRender;
 import com.pupmod.render.stopRender;
 import com.pupmod.render.testRender;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.RenderTypeLookup;
-import net.minecraft.entity.passive.SheepEntity;
 import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
+import net.minecraftforge.fmlclient.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
@@ -34,11 +34,11 @@ public class clientSetup {
         RenderingRegistry.registerEntityRenderingHandler(entitycreatortypes.LLL.get(), lllRender::new);
         RenderingRegistry.registerEntityRenderingHandler(entitycreatortypes.RINGENTITY.get(), ringRender::new);
         //RenderingRegistry.registerEntityRenderingHandler(entitycreatortypes.STOPI.get(), stopRender::new);
-             
-        RenderTypeLookup.setRenderLayer(registerblocks.KIRCHNER_BLOCK.get(), RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(registerblocks.KIRCHNER_BLOCK_NORMAL.get(), RenderType.translucent());
-        RenderTypeLookup.setRenderLayer(registerblocks.PINK_BLOCK_TROLL.get(), RenderType.translucent());
-
+        
+        ItemBlockRenderTypes.setRenderLayer(registerblocks.KIRCHNER_BLOCK.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(registerblocks.KIRCHNER_BLOCK_NORMAL.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(registerblocks.PINK_BLOCK_TROLL.get(), RenderType.translucent());
+ 
 	}
 
 	@SubscribeEvent

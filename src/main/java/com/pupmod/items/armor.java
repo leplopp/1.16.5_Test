@@ -1,18 +1,12 @@
 package com.pupmod.items;
 
-import net.minecraft.block.Block;
-import net.minecraft.entity.Entity;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.ArmorItem;
-import net.minecraft.item.IArmorMaterial;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
-import net.minecraft.world.World;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.ArmorMaterials;
 
 public class armor extends ArmorItem{
 
-	public armor(IArmorMaterial material, EquipmentSlotType type, Properties prob) {
+	public armor(ArmorMaterials material, EquipmentSlot type, Properties prob) {
 		super(material, type, prob);
 	}
 	

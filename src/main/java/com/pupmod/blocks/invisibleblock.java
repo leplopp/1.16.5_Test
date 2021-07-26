@@ -1,6 +1,6 @@
 package com.pupmod.blocks;
 
-import net.minecraft.block.AbstractGlassBlock;
+import net.minecraft.world.level.block.AbstractGlassBlock;
 
 public class invisibleblock extends AbstractGlassBlock{
 	
