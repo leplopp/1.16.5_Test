@@ -1,0 +1,18 @@
+{
+"parent": "minecraft:block/block",
+	
+	"textures":
+	{
+	
+		"Material": "minecraft:block/glass",
+		"particle": "minecraft:block/glass"
+
+	
+	},
+	
+	"loader": "forge:obj",
+	"model": "pupmod:models/block/cornerobj_main.obj",
+	
+	"flip-v": true
+
+}

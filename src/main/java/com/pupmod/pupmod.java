@@ -43,14 +43,14 @@ public class pupmod {
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 		MinecraftForge.EVENT_BUS.register(this);
 		
-		//soundregistry.SoundInit();
+		soundregistry.SoundInit();
 		//entitycreatortypes.ENTITIE_TYPES.register(bus);
 		
 		Registeritems.ITEMS.register(bus);
 		registerblocks.BLOCKS.register(bus);
 		
 		//FMLJavaModLoadingContext.get().getModEventBus().addListener(modSetup::init);	
-        //FMLJavaModLoadingContext.get().getModEventBus().addListener(clientSetup::init);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(clientSetup::init);
         //MinecraftForge.EVENT_BUS.addListener(EventPriority.HIGH, featureinit::addOres);
         
 		//MinecraftForge.EVENT_BUS.register(BiomeINIT.BIOMES);

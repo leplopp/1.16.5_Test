@@ -7,6 +7,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.GenerationStep;
+import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
 import net.minecraft.world.level.levelgen.feature.Feature;
 import net.minecraft.world.level.levelgen.feature.OreFeature;
 import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguration;
@@ -20,7 +21,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class featureinit {
 	
-	public static final DeferredRegister<Biome> BIOMES = DeferredRegister.create(ForgeRegistries.BIOMES, pupmod.MODID);
+	/*public static final DeferredRegister<Biome> BIOMES = DeferredRegister.create(ForgeRegistries.BIOMES, pupmod.MODID);
 
 	public static void addOres(final BiomeLoadingEvent event) {
 		addOre(event, OreFeature.ORE,
@@ -41,12 +42,9 @@ public class featureinit {
 	public static void addOre(final BiomeLoadingEvent event, RuleTest rule, BlockState state, int veinSize, int minh,
 			int maxh, int amound) {
 		HeightProvider heigh;
-		event.getGeneration().addFeature(GenerationStep.Decoration.UNDERGROUND_ORES,
-				Feature.ORE.configured(new OreConfiguration(rule, state, veinSize))
-						.decorated(CarvingMaskDecorator.RANGE.configured(new RangeDecoratorConfiguration(heigh))).squared()
-						.count(amound));
+		event.getGeneration().addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ConfiguredFeature<FeatureConfiguration, Feature<FC>>
 
-	}
+	}*/
 	
 	/*private static RegistryKey<Biome> makeKey(final BiomeLoadingEvent event, String name) {
 		BIOMES.register("pinki_biome", () -> new Biome.Builder()

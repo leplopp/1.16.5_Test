@@ -21,11 +21,11 @@ import net.minecraftforge.fmlclient.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
-//@Mod.EventBusSubscriber(modid = pupmod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = pupmod.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class clientSetup {
 	
 	public static void init(final FMLClientSetupEvent event) { 
-		RenderingRegistry.registerEntityRenderingHandler(entitycreatortypes.NIGGI.get(), RenderNiggi::new);
+		/*RenderingRegistry.registerEntityRenderingHandler(entitycreatortypes.NIGGI.get(), RenderNiggi::new);
         RenderingRegistry.registerEntityRenderingHandler(entitycreatortypes.TEST_MODEL.get(), testRender::new);
         RenderingRegistry.registerEntityRenderingHandler(entitycreatortypes.PUH.get(), puhRender::new);
         RenderingRegistry.registerEntityRenderingHandler(entitycreatortypes.PUPPIG.get(), PuppigRender::new);
@@ -33,15 +33,14 @@ public class clientSetup {
         RenderingRegistry.registerEntityRenderingHandler(entitycreatortypes.GUMPALAN.get(), gumpalanRender::new);
         RenderingRegistry.registerEntityRenderingHandler(entitycreatortypes.LLL.get(), lllRender::new);
         RenderingRegistry.registerEntityRenderingHandler(entitycreatortypes.RINGENTITY.get(), ringRender::new);
-        //RenderingRegistry.registerEntityRenderingHandler(entitycreatortypes.STOPI.get(), stopRender::new);
-        
+        //RenderingRegistry.registerEntityRenderingHandler(entitycreatortypes.STOPI.get(), stopRender::new); */
         ItemBlockRenderTypes.setRenderLayer(registerblocks.KIRCHNER_BLOCK.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(registerblocks.KIRCHNER_BLOCK_NORMAL.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(registerblocks.PINK_BLOCK_TROLL.get(), RenderType.translucent());
- 
+        ItemBlockRenderTypes.setRenderLayer(registerblocks.CORNEROBJ_GLASS.get(), RenderType.cutout());
 	}
 
-	@SubscribeEvent
+	/*@SubscribeEvent
     public static void onItemColor(ColorHandlerEvent.Item event) {
         event.getItemColors().register((stack, i) -> 0xC01394, Registeritems.NIGGI_EGG.get());
         event.getItemColors().register((stack, i) -> 0xEA779C, Registeritems.TEST_EGG.get());
@@ -52,5 +51,5 @@ public class clientSetup {
         event.getItemColors().register((stack, i) -> 0x151515, Registeritems.LLL_EGG.get());
         event.getItemColors().register((stack, i) -> 0x101085, Registeritems.RING_EGG.get());
        // event.getItemColors().register((stack, i) -> 0x8A0808, Registeritems.STOP_EGG.get());
-    }
+    }*/
 }

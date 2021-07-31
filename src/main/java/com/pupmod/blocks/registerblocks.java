@@ -14,6 +14,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
+import net.minecraftforge.client.textures.ForgeTextureMetadata;
 import net.minecraftforge.common.ToolType;
 import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -109,6 +110,23 @@ public class registerblocks {
 	public static final RegistryObject<Block> PINK_STONE = BLOCKS.register("pink_stone",
 			() -> new invisibleblock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).harvestLevel(1)
 					.harvestTool(ToolType.PICKAXE).strength(3f).sound(SoundType.STONE).noOcclusion()));
+	
+	public static final RegistryObject<Block> CORNEROBJ_TEST = BLOCKS.register("corner_test",
+			() -> new invisibleblock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).harvestLevel(1)
+					.harvestTool(ToolType.PICKAXE).strength(3f).sound(SoundType.STONE).noOcclusion()));
+	
+	public static final RegistryObject<Block> CORNEROBJ_MAIN = BLOCKS.register("cornerobj_main",
+			() -> new invisibleblock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).harvestLevel(1)
+					.harvestTool(ToolType.PICKAXE).strength(3f).sound(SoundType.STONE).noOcclusion()));
+	
+	public static final RegistryObject<Block> CORNEROUTOBJ_MAIN = BLOCKS.register("corneroutobj_main",
+			() -> new invisibleblock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).harvestLevel(1)
+					.harvestTool(ToolType.PICKAXE).strength(3f).sound(SoundType.STONE).noOcclusion()));
+	
+	public static final RegistryObject<Block> CORNEROBJ_GLASS = BLOCKS.register("cornerobj_glass",
+			() -> new invisibleblock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).harvestLevel(1)
+					.harvestTool(ToolType.PICKAXE).strength(3f).sound(SoundType.STONE).noOcclusion()));
+	
 
 	/*//fluids
 	@SuppressWarnings("deprecation")

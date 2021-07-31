@@ -1,0 +1,14 @@
+{
+"parent": "forge:block/default",
+	"loader": "forge:obj",
+	"model": "pupmod:models/block/corneroutobj_main.obj",
+	"textures":
+	{
+	
+		"#Material": "minecraft:block/cobblestone",
+		"particle": "pupmod:block/pink_block"
+	
+	},
+	"flip-v": true
+
+}

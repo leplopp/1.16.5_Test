@@ -1,0 +1,18 @@
+{
+"parent": "minecraft:block/block",
+	
+	"textures":
+	{
+	
+	
+		"Material": "minecraft:block/cobblestone",
+		"particle": "minecraft:block/cobblestone"
+	
+	},
+	
+	"loader": "forge:obj",
+	"model": "pupmod:models/block/cornerobj_main.obj",
+	
+	"flip-v": true
+
+}
