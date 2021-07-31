@@ -88,39 +88,39 @@ public class registerblocks {
 					.harvestTool(ToolType.PICKAXE).strength(3f).sound(SoundType.STONE).noOcclusion()));
 
 	public static final RegistryObject<Block> MACHAUGEBLOCK = BLOCKS.register("eyeball",
-			() -> new invisibleblock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).harvestLevel(1)
+			() -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).harvestLevel(1)
 					.harvestTool(ToolType.PICKAXE).strength(3f).sound(SoundType.STONE).noOcclusion()));
 	
 	public static final RegistryObject<Block> PINK_ORE = BLOCKS.register("pink_ore",
-			() -> new invisibleblock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).harvestLevel(1)
+			() -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).harvestLevel(1)
 					.harvestTool(ToolType.PICKAXE).strength(3f).sound(SoundType.STONE).noOcclusion()));
 		
 	public static final RegistryObject<Block> SOUR_MILK_BLOCK = BLOCKS.register("sour_milk_block",
-			() -> new invisibleblock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).harvestLevel(1)
+			() -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).harvestLevel(1)
 					.harvestTool(ToolType.PICKAXE).strength(3f).sound(SoundType.STONE).noOcclusion()));
 	
 	public static final RegistryObject<Block> HARD_MILK_BLOCK = BLOCKS.register("hard_milk_block",
-			() -> new invisibleblock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).harvestLevel(1)
+			() -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).harvestLevel(1)
 					.harvestTool(ToolType.PICKAXE).strength(3f).sound(SoundType.STONE).noOcclusion()));
 	
 	public static final RegistryObject<Block> HARD_MILK_BRICKS = BLOCKS.register("hard_milk_bricks",
-			() -> new invisibleblock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).harvestLevel(1)
+			() -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).harvestLevel(1)
 					.harvestTool(ToolType.PICKAXE).strength(3f).sound(SoundType.STONE).noOcclusion()));
 	
 	public static final RegistryObject<Block> PINK_STONE = BLOCKS.register("pink_stone",
-			() -> new invisibleblock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).harvestLevel(1)
+			() -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).harvestLevel(1)
 					.harvestTool(ToolType.PICKAXE).strength(3f).sound(SoundType.STONE).noOcclusion()));
 	
 	public static final RegistryObject<Block> CORNEROBJ_TEST = BLOCKS.register("corner_test",
-			() -> new invisibleblock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).harvestLevel(1)
+			() -> new CornerOBJ(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).harvestLevel(1)
 					.harvestTool(ToolType.PICKAXE).strength(3f).sound(SoundType.STONE).noOcclusion()));
 	
 	public static final RegistryObject<Block> CORNEROBJ_MAIN = BLOCKS.register("cornerobj_main",
-			() -> new invisibleblock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).harvestLevel(1)
+			() -> new CornerOBJ(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).harvestLevel(1)
 					.harvestTool(ToolType.PICKAXE).strength(3f).sound(SoundType.STONE).noOcclusion()));
 	
 	public static final RegistryObject<Block> CORNEROUTOBJ_MAIN = BLOCKS.register("corneroutobj_main",
-			() -> new invisibleblock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).harvestLevel(1)
+			() -> new CornerOBJ(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_PINK).harvestLevel(1)
 					.harvestTool(ToolType.PICKAXE).strength(3f).sound(SoundType.STONE).noOcclusion()));
 	
 	public static final RegistryObject<Block> CORNEROBJ_GLASS = BLOCKS.register("cornerobj_glass",
