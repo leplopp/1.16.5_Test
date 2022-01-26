@@ -14,6 +14,8 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
@@ -27,7 +29,7 @@ public class pup_spade extends DiggerItem {
 	 protected static final Map<Block, BlockState> FLATTENABLES = Maps.newHashMap((new Builder()).put(Blocks.GRASS_BLOCK, Blocks.DIRT_PATH.defaultBlockState()).put(Blocks.DIRT, Blocks.DIRT_PATH.defaultBlockState()).put(Blocks.PODZOL, Blocks.DIRT_PATH.defaultBlockState()).put(Blocks.COARSE_DIRT, Blocks.DIRT_PATH.defaultBlockState()).put(Blocks.MYCELIUM, Blocks.DIRT_PATH.defaultBlockState()).put(Blocks.ROOTED_DIRT, Blocks.DIRT_PATH.defaultBlockState()).build());
 
 	   public pup_spade(Tier p_43114_, float p_43115_, float p_43116_, Item.Properties p_43117_) {
-	      super(p_43115_, p_43116_, p_43114_, BlockTags.MINEABLE_WITH_SHOVEL, p_43117_.addToolType(net.minecraftforge.common.ToolType.SHOVEL, p_43114_.getLevel()));
+	      super(p_43115_, p_43116_, p_43114_, BlockTags.MINEABLE_WITH_SHOVEL, p_43117_);
 	   }
 
 	   public InteractionResult useOn(UseOnContext p_43119_) {
@@ -38,7 +40,7 @@ public class pup_spade extends DiggerItem {
 	         return InteractionResult.PASS;
 	      } else {
 	         Player player = p_43119_.getPlayer();
-	         BlockState blockstate1 = blockstate.getToolModifiedState(level, blockpos, player, p_43119_.getItemInHand(), net.minecraftforge.common.ToolType.SHOVEL);
+	         BlockState blockstate1 = blockstate.getToolModifiedState(level, blockpos, player, p_43119_.getItemInHand(), net.minecraftforge.common.ToolActions.SHOVEL_FLATTEN);
 	         BlockState blockstate2 = null;
 	         if (blockstate1 != null && level.isEmptyBlock(blockpos.above())) {
 	            level.playSound(player, blockpos, SoundEvents.SHOVEL_FLATTEN, SoundSource.BLOCKS, 1.0F, 1.0F);
@@ -72,5 +74,9 @@ public class pup_spade extends DiggerItem {
 	   @javax.annotation.Nullable
 	   public static BlockState getShovelPathingState(BlockState originalState) {
 	      return FLATTENABLES.get(originalState.getBlock());
+	   }
+	   @Override
+	   public boolean canPerformAction(ItemStack stack, net.minecraftforge.common.ToolAction toolAction) {
+	      return net.minecraftforge.common.ToolActions.DEFAULT_SHOVEL_ACTIONS.contains(toolAction);
 	   }
 }

@@ -17,10 +17,10 @@ public class testModel extends EntityModel<testEntity>{
 	    }
 
 
-	@Override
+	/*@Override
     public void setupAnim(testEntity testEntity, float v, float v1, float v2, float v3, float v4) {
 
-    }
+    }*/
 
     @Override
     public void renderToBuffer(MatrixStack matrixStack, IVertexBuilder iVertexBuilder, int packedLightIn, int packedOverlayIn, float red, float green, float blue, float alpha) {

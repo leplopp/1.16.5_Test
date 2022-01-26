@@ -95,10 +95,10 @@ public class Registeritems {
 	public static final RegistryObject<Item> BLOOD_LIQUID = ITEMS.register("blood_liquid",
 			() -> new Item(new Item.Properties().tab(pupmod.PUP_TAB_ITEMS).stacksTo(1)));
 	// Eggs
-	/*public static final RegistryObject<pupEggs> NIGGI_EGG = ITEMS.register("niggi_egg",
+	public static final RegistryObject<pupEggs> NIGGI_EGG = ITEMS.register("niggi_egg",
 			() -> new pupEggs(entitycreatortypes.NIGGI, 0x00000, 0x00000,
 					new Item.Properties().tab(pupmod.PUP_TAB_ITEMS).stacksTo(1)));
-	public static final RegistryObject<pupEggs> TEST_EGG = ITEMS.register("test_egg",
+	/*public static final RegistryObject<pupEggs> TEST_EGG = ITEMS.register("test_egg",
 			() -> new pupEggs(entitycreatortypes.TEST_MODEL, 0x00000, 0x00000,
 					new Item.Properties().tab(pupmod.PUP_TAB_ITEMS).stacksTo(1)));
 	public static final RegistryObject<pupEggs> PUH_EGG = ITEMS.register("puh_egg",

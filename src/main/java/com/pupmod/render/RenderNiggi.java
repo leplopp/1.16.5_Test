@@ -6,23 +6,18 @@ import com.pupmod.pupmod;
 import com.pupmod.entitys.NiggiEntity;
 import com.pupmod.model.Model1;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.entity.EntityRendererManager;
-import net.minecraft.client.renderer.entity.IEntityRenderer;
+import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.client.renderer.entity.model.EntityModel;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.MobEntity;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.resources.ResourceLocation;
 
-public class RenderNiggi extends MobRenderer<NiggiEntity, Model1<NiggiEntity>>{
+public class RenderNiggi<Type extends NiggiEntity> extends MobRenderer<Type, Model1<Type>>{
 
 	private static final ResourceLocation TEXTURE = new ResourceLocation(pupmod.MODID, "textures/entity/1.png");	
 	
-	public RenderNiggi(EntityRendererManager render) {
-		super(render, new Model1<>(), 0.5f);
+	public RenderNiggi(Context render) {
+		super(render, new Model1<>(render.bakeLayer(Model1.LAYER_LOCATION)), 0.5f);
 	}
-    @Nullable
+
 	@Override
 	public ResourceLocation getTextureLocation(NiggiEntity entity) {
 		return TEXTURE;

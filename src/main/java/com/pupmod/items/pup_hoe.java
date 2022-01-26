@@ -33,7 +33,7 @@ public class pup_hoe extends DiggerItem {
 	   }, changeIntoStateAndDropItem(Blocks.DIRT.defaultBlockState(), Items.HANGING_ROOTS))));
 
 	   public pup_hoe(Tier p_41336_, int p_41337_, float p_41338_, Item.Properties p_41339_) {
-	      super((float)p_41337_, p_41338_, p_41336_, BlockTags.MINEABLE_WITH_HOE, p_41339_.addToolType(net.minecraftforge.common.ToolType.HOE, p_41336_.getLevel()));
+	      super((float)p_41337_, p_41338_, p_41336_, BlockTags.MINEABLE_WITH_HOE, p_41339_);
 	   }
 
 	   public InteractionResult useOn(UseOnContext p_41341_) {
@@ -86,5 +86,8 @@ public class pup_hoe extends DiggerItem {
 	   public static boolean onlyIfAirAbove(UseOnContext p_150857_) {
 	      return p_150857_.getClickedFace() != Direction.DOWN && p_150857_.getLevel().getBlockState(p_150857_.getClickedPos().above()).isAir();
 	   }
-
+	   @Override
+	   public boolean canPerformAction(ItemStack stack, net.minecraftforge.common.ToolAction toolAction) {
+	      return net.minecraftforge.common.ToolActions.DEFAULT_HOE_ACTIONS.contains(toolAction);
+	   }
 }

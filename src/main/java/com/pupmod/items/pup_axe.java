@@ -28,14 +28,13 @@ import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.WeatheringCopper;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
-import net.minecraftforge.common.ToolType;
+import net.minecraftforge.common.ToolAction;
 
 public class pup_axe extends DiggerItem {
-
 	   protected static final Map<Block, Block> STRIPPABLES = (new Builder<Block, Block>()).put(Blocks.OAK_WOOD, Blocks.STRIPPED_OAK_WOOD).put(Blocks.OAK_LOG, Blocks.STRIPPED_OAK_LOG).put(Blocks.DARK_OAK_WOOD, Blocks.STRIPPED_DARK_OAK_WOOD).put(Blocks.DARK_OAK_LOG, Blocks.STRIPPED_DARK_OAK_LOG).put(Blocks.ACACIA_WOOD, Blocks.STRIPPED_ACACIA_WOOD).put(Blocks.ACACIA_LOG, Blocks.STRIPPED_ACACIA_LOG).put(Blocks.BIRCH_WOOD, Blocks.STRIPPED_BIRCH_WOOD).put(Blocks.BIRCH_LOG, Blocks.STRIPPED_BIRCH_LOG).put(Blocks.JUNGLE_WOOD, Blocks.STRIPPED_JUNGLE_WOOD).put(Blocks.JUNGLE_LOG, Blocks.STRIPPED_JUNGLE_LOG).put(Blocks.SPRUCE_WOOD, Blocks.STRIPPED_SPRUCE_WOOD).put(Blocks.SPRUCE_LOG, Blocks.STRIPPED_SPRUCE_LOG).put(Blocks.WARPED_STEM, Blocks.STRIPPED_WARPED_STEM).put(Blocks.WARPED_HYPHAE, Blocks.STRIPPED_WARPED_HYPHAE).put(Blocks.CRIMSON_STEM, Blocks.STRIPPED_CRIMSON_STEM).put(Blocks.CRIMSON_HYPHAE, Blocks.STRIPPED_CRIMSON_HYPHAE).build();
 
 	   public pup_axe(Tier p_40521_, float p_40522_, float p_40523_, Item.Properties p_40524_) {
-	      super(p_40522_, p_40523_, p_40521_, BlockTags.MINEABLE_WITH_AXE, p_40524_.addToolType(net.minecraftforge.common.ToolType.AXE, p_40521_.getLevel()));
+	      super(p_40522_, p_40523_, p_40521_, BlockTags.MINEABLE_WITH_AXE, p_40524_);
 	   }
 
 	 public InteractionResult useOn(UseOnContext p_40529_) {
@@ -43,11 +42,9 @@ public class pup_axe extends DiggerItem {
 	      BlockPos blockpos = p_40529_.getClickedPos();
 	      Player player = p_40529_.getPlayer();
 	      BlockState blockstate = level.getBlockState(blockpos);
-	      Optional<BlockState> optional = Optional.ofNullable(blockstate.getToolModifiedState(level, blockpos, player, p_40529_.getItemInHand(),  net.minecraftforge.common.ToolType.AXE));
-	      Optional<BlockState> optional1 = WeatheringCopper.getPrevious(blockstate);
-	      Optional<BlockState> optional2 = Optional.ofNullable(HoneycombItem.WAX_OFF_BY_BLOCK.get().get(blockstate.getBlock())).map((p_150694_) -> {
-	         return p_150694_.withPropertiesOf(blockstate);
-	      });
+	      Optional<BlockState> optional = Optional.ofNullable(blockstate.getToolModifiedState(level, blockpos, player, p_40529_.getItemInHand(), net.minecraftforge.common.ToolActions.AXE_STRIP));
+	      Optional<BlockState> optional1 = Optional.ofNullable(blockstate.getToolModifiedState(level, blockpos, player, p_40529_.getItemInHand(), net.minecraftforge.common.ToolActions.AXE_SCRAPE));
+	      Optional<BlockState> optional2 = Optional.ofNullable(blockstate.getToolModifiedState(level, blockpos, player, p_40529_.getItemInHand(), net.minecraftforge.common.ToolActions.AXE_WAX_OFF));
 	      ItemStack itemstack = p_40529_.getItemInHand();
 	      Optional<BlockState> optional3 = Optional.empty();
 	      if (optional.isPresent()) {
@@ -91,5 +88,9 @@ public class pup_axe extends DiggerItem {
 	      return Optional.ofNullable(STRIPPABLES.get(p_150691_.getBlock())).map((p_150689_) -> {
 	         return p_150689_.defaultBlockState().setValue(RotatedPillarBlock.AXIS, p_150691_.getValue(RotatedPillarBlock.AXIS));
 	      });
+	   }
+	   @Override
+	   public boolean canPerformAction(ItemStack stack, net.minecraftforge.common.ToolAction toolAction) {
+	      return net.minecraftforge.common.ToolActions.DEFAULT_AXE_ACTIONS.contains(toolAction);
 	   }
 }

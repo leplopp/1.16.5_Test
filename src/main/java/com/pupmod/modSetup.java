@@ -10,17 +10,17 @@ import com.pupmod.entitys.puppigEntity;
 import com.pupmod.entitys.ringEntity;
 import com.pupmod.entitys.stopEntity;
 import com.pupmod.entitys.testEntity;
-import net.minecraftforge.fml.DeferredWorkQueue;
-import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
 //@Mod.EventBusSubscriber(modid = pupmod.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class modSetup {
 
 	@SuppressWarnings("deprecation")
-	public static void init(final FMLCommonSetupEvent event) {
+	public static void init(final EntityAttributeCreationEvent event) { 
+		event.put(entitycreatortypes.NIGGI.get(), NiggiEntity.createAttributes().build());
 		
-		DeferredWorkQueue.runLater(() -> {GlobalEntityTypeAttributes.put(entitycreatortypes.NIGGI.get(), NiggiEntity.setAttributes().build());});
+		/*DeferredWorkQueue.runLater(() -> {GlobalEntityTypeAttributes.put(entitycreatortypes.NIGGI.get(), NiggiEntity.setAttributes().build());});
 		DeferredWorkQueue.runLater(() -> {GlobalEntityTypeAttributes.put(entitycreatortypes.TEST_MODEL.get(), testEntity.setAttributes().build());});
 		DeferredWorkQueue.runLater(() -> {GlobalEntityTypeAttributes.put(entitycreatortypes.PUH.get(), PuhEntity.setAttributes().build());});
 		DeferredWorkQueue.runLater(() -> {GlobalEntityTypeAttributes.put(entitycreatortypes.PUPPIG.get(), puppigEntity.setAttributes().build());});

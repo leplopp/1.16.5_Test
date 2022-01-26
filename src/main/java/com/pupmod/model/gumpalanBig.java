@@ -1,47 +1,33 @@
-package com.pupmod.model;
+// Made with Blockbench 4.1.3
+// Exported for Minecraft version 1.17 with Mojang mappings
+// Paste this class into your mod and generate all required imports
 
-import com.mojang.blaze3d.matrix.MatrixStack;
-import com.mojang.blaze3d.vertex.IVertexBuilder;
-import com.pupmod.entitys.gumpalanBigEntity;
-import com.pupmod.entitys.puppigEntity;
 
-import net.minecraft.client.renderer.entity.model.EntityModel;
-import net.minecraft.client.renderer.model.ModelBakery;
-import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.entity.Entity;
-import net.minecraftforge.client.model.ModelLoader;
+public class gumpalanBig<T extends Entity> extends EntityModel<T> {
+	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
+	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("modid", "gumpalanbig"), "main");
+	private final ModelPart Shape1;
 
-public class gumpalanBig extends EntityModel<gumpalanBigEntity>
-{
-  //fields
-    ModelRenderer Shape1;
-  
-  public gumpalanBig()
-  {
-      this.texWidth = 512;
-      this.texHeight = 512;
-      Shape1 = new ModelRenderer(this, 0, 0);
-      Shape1.addBox(0F, 0F, 0F, 100, 300, 150);
-      Shape1.setPos(10F, -274F, 0F);
-      Shape1.setTexSize(512, 512);
-      Shape1.mirror = true;
-      setRotation(Shape1, 0F, 0F, 0F);
-  }
-  public void renderToBuffer(MatrixStack matrixStack, IVertexBuilder iVertexBuilder, int packedLightIn, int packedOverlayIn,
-			float red, float green, float blue, float alpha) {
-	  
-	  Shape1.render(matrixStack, iVertexBuilder, packedLightIn, packedOverlayIn, red, green, blue,
-				alpha);	  
-  }
-  private void setRotation(ModelRenderer model, float x, float y, float z)
-  {
-    model.xRot = x;
-    model.yRot = y;
-    model.zRot = z;
-  }
-  
-@Override
-public void setupAnim(gumpalanBigEntity p_225597_1_, float p_225597_2_, float p_225597_3_, float p_225597_4_,
-		float p_225597_5_, float p_225597_6_) {	
+	public gumpalanBig(ModelPart root) {
+		this.Shape1 = root.getChild("Shape1");
+	}
+
+	public static LayerDefinition createBodyLayer() {
+		MeshDefinition meshdefinition = new MeshDefinition();
+		PartDefinition partdefinition = meshdefinition.getRoot();
+
+		PartDefinition Shape1 = partdefinition.addOrReplaceChild("Shape1", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-60.0F, -2.0F, -70.0F, 100.0F, 300.0F, 150.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(10.0F, -274.0F, 0.0F));
+
+		return LayerDefinition.create(meshdefinition, 512, 512);
+	}
+
+	@Override
+	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+
+	}
+
+	@Override
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		Shape1.render(poseStack, buffer, packedLight, packedOverlay);
 	}
 }
