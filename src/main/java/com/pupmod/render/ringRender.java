@@ -1,31 +1,22 @@
 package com.pupmod.render;
 
-import javax.annotation.Nullable;
 import com.pupmod.pupmod;
-import com.pupmod.entitys.NiggiEntity;
-import com.pupmod.entitys.lllEntity;
 import com.pupmod.entitys.ringEntity;
-import com.pupmod.model.Model1;
 import com.pupmod.model.ringentitymodel;
-
-import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.entity.Entity;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
 
-public class ringRender extends MobRenderer<ringEntity, ringentitymodel<ringEntity>>{
+public class ringRender<Type extends ringEntity> extends MobRenderer<Type, ringentitymodel<Type>>{
 
-	private static final ResourceLocation TEXTURE = new ResourceLocation(pupmod.MODID, "textures/entity/ringentity.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(pupmod.MODID, "textures/entity/ringentity.png");	
 	
-	public ringRender(EntityRendererManager render) {
-	
-		super(render, new ringentitymodel<>(), 0.5f);
+	public ringRender(Context render) {
+		super(render, new ringentitymodel<>(render.bakeLayer(ringentitymodel.LAYER_LOCATION)), 0.5f);
 	}
-    @Nullable
+
 	@Override
 	public ResourceLocation getTextureLocation(ringEntity entity) {
 		return TEXTURE;
 	}
 }
-
-

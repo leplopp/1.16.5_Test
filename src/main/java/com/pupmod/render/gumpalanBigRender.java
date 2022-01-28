@@ -1,29 +1,20 @@
 package com.pupmod.render;
 
-import javax.annotation.Nullable;
-
 import com.pupmod.pupmod;
-import com.pupmod.entitys.PuhEntity;
 import com.pupmod.entitys.gumpalanBigEntity;
-
-import net.minecraft.client.renderer.entity.EntityRendererManager;
+import com.pupmod.model.gumpalanBig;
+import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.entity.Entity;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.resources.ResourceLocation;
 
-public class gumpalanBigRender extends MobRenderer<gumpalanBigEntity, com.pupmod.model.gumpalanBig>{
+public class gumpalanBigRender<Type extends gumpalanBigEntity> extends MobRenderer<Type, gumpalanBig<Type>>{
 
-	private static final ResourceLocation TEXTURE = new ResourceLocation(pupmod.MODID, "textures/entity/klotz2.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(pupmod.MODID, "textures/entity/gumpalanbig.png");	
 	
-	
-	
-	public gumpalanBigRender(EntityRendererManager render) {
-	
-		super(render, new com.pupmod.model.gumpalanBig(), 5.0f);
+	public gumpalanBigRender(Context render) {
+		super(render, new gumpalanBig<>(render.bakeLayer(gumpalanBig.LAYER_LOCATION)), 10f);
 	}
 
-
-    @Nullable
 	@Override
 	public ResourceLocation getTextureLocation(gumpalanBigEntity entity) {
 		return TEXTURE;

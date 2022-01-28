@@ -1,11 +1,21 @@
-// Made with Blockbench 4.1.3
-// Exported for Minecraft version 1.17 with Mojang mappings
-// Paste this class into your mod and generate all required imports
+package com.pupmod.model;
 
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.pupmod.entitys.gumpalanBigEntity;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.CubeDeformation;
+import net.minecraft.client.model.geom.builders.CubeListBuilder;
+import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.model.geom.builders.MeshDefinition;
+import net.minecraft.client.model.geom.builders.PartDefinition;
+import net.minecraft.resources.ResourceLocation;
 
-public class gumpalanBig<T extends Entity> extends EntityModel<T> {
-	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("modid", "gumpalanbig"), "main");
+public class gumpalanBig<T extends gumpalanBigEntity> extends EntityModel<T> {
+	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("pupmod", "gumpalanbig"), "main");
 	private final ModelPart Shape1;
 
 	public gumpalanBig(ModelPart root) {
@@ -16,7 +26,7 @@ public class gumpalanBig<T extends Entity> extends EntityModel<T> {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
 
-		PartDefinition Shape1 = partdefinition.addOrReplaceChild("Shape1", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-60.0F, -2.0F, -70.0F, 100.0F, 300.0F, 150.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(10.0F, -274.0F, 0.0F));
+		PartDefinition Shape1 = partdefinition.addOrReplaceChild("Shape1", CubeListBuilder.create().texOffs(0, 0).mirror().addBox(-60.0F, -2.0F, -75.0F, 100.0F, 300.0F, 150.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(10.0F, -274.0F, 0.0F));
 
 		return LayerDefinition.create(meshdefinition, 512, 512);
 	}

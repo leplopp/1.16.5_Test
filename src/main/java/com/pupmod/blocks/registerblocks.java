@@ -110,6 +110,17 @@ public class registerblocks {
 			() -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_PINK)
 					.strength(3f).sound(SoundType.STONE).noOcclusion()));
 	
+	//1.17.1/1.18
+	
+	public static final RegistryObject<Block> SCHLUBBEL_WOOD = BLOCKS.register("schlubbel_wood",
+			() -> new Block(BlockBehaviour.Properties.of(Material.WOOD, MaterialColor.COLOR_PINK)
+					.strength(30f).sound(SoundType.WOOD).noOcclusion()));
+	
+	public static final RegistryObject<Block> SCHLUBBEL_LEAVES = BLOCKS.register("schlubbel_leaves",
+			() -> new Block(BlockBehaviour.Properties.of(Material.LEAVES, MaterialColor.COLOR_PINK)
+					.strength(100f).sound(SoundType.AZALEA_LEAVES).noOcclusion()));
+	
+/*	
 	public static final RegistryObject<Block> CORNEROBJ_TEST = BLOCKS.register("corner_test",
 			() -> new CornerOBJ(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_PINK)
 					.strength(3f).sound(SoundType.STONE).noOcclusion()));
@@ -125,7 +136,7 @@ public class registerblocks {
 	public static final RegistryObject<Block> CORNEROBJ_GLASS = BLOCKS.register("cornerobj_glass",
 			() -> new invisibleblock(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_PINK)
 					.strength(3f).sound(SoundType.STONE).noOcclusion()));
-	
+	*/
 
 	/*//fluids
 	@SuppressWarnings("deprecation")

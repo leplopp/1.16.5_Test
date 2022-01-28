@@ -1,76 +1,56 @@
 package com.pupmod.entitys;
 
-import java.util.Collection;
-import java.util.Optional;
-import javax.annotation.Nullable;
-import com.pupmod.items.Registeritems;
-import com.pupmod.items.pupEggs;
-import net.minecraft.block.BlockState;
-import net.minecraft.client.renderer.entity.CowRenderer;
-import net.minecraft.client.renderer.entity.model.CowModel;
-import net.minecraft.entity.AgeableEntity;
-import net.minecraft.entity.CreatureAttribute;
-import net.minecraft.entity.EntitySize;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.MobEntity;
-import net.minecraft.entity.Pose;
-import net.minecraft.entity.ai.attributes.AttributeModifierMap;
-import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.entity.ai.goal.BreedGoal;
-import net.minecraft.entity.ai.goal.FollowParentGoal;
-import net.minecraft.entity.ai.goal.LookAtGoal;
-import net.minecraft.entity.ai.goal.LookRandomlyGoal;
-import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
-import net.minecraft.entity.ai.goal.PanicGoal;
-import net.minecraft.entity.ai.goal.RandomWalkingGoal;
-import net.minecraft.entity.ai.goal.SwimGoal;
-import net.minecraft.entity.ai.goal.TemptGoal;
-import net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal;
-import net.minecraft.entity.item.ItemEntity;
-import net.minecraft.entity.passive.AnimalEntity;
-import net.minecraft.entity.passive.CowEntity;
-import net.minecraft.entity.passive.IronGolemEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Items;
-import net.minecraft.item.SpawnEggItem;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.network.IPacket;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.DrinkHelper;
-import net.minecraft.util.Hand;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.SoundEvents;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
-import net.minecraftforge.fml.network.NetworkHooks;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.AgeableMob;
+import net.minecraft.world.entity.EntityDimensions;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.Pose;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.BreedGoal;
+import net.minecraft.world.entity.ai.goal.FloatGoal;
+import net.minecraft.world.entity.ai.goal.FollowParentGoal;
+import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
+import net.minecraft.world.entity.ai.goal.PanicGoal;
+import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
+import net.minecraft.world.entity.ai.goal.TemptGoal;
+import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
+import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemUtils;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 import sound.soundregistry;
 
-public class PuhEntity extends AnimalEntity {
+public class PuhEntity extends Animal{
 
-	public PuhEntity(EntityType<? extends PuhEntity> type, World worldIn) {
+	public PuhEntity(EntityType<? extends PuhEntity> type, Level worldIn) {
 		
 		super(type, worldIn);
 	}	
-		
-	 protected void registerGoals() {
-	      this.goalSelector.addGoal(0, new SwimGoal(this));
-	      this.goalSelector.addGoal(1, new RandomWalkingGoal(this, 1D));
-	      this.goalSelector.addGoal(2, new LookAtGoal(this, PlayerEntity.class, 10.0F));
-	      this.goalSelector.addGoal(3, new LookRandomlyGoal(this));	
-	      this.goalSelector.addGoal(4, new PanicGoal(this, 20.0D));
-	      this.goalSelector.addGoal(5, new BreedGoal(this, 100.0D));
-	      this.goalSelector.addGoal(6, new TemptGoal(this, 1.25D, Ingredient.of(Items.WHEAT), false));
-	      this.goalSelector.addGoal(7, new FollowParentGoal(this, 10.25D));
-	      this.goalSelector.addGoal(8, new WaterAvoidingRandomWalkingGoal(this, 1.0D));
-	   }
-public static AttributeModifierMap.MutableAttribute setAttributes() {
-   return LivingEntity.createLivingAttributes()
+	   protected void registerGoals() {
+		      this.goalSelector.addGoal(0, new FloatGoal(this));
+		      this.goalSelector.addGoal(1, new PanicGoal(this, 2.0D));
+		      this.goalSelector.addGoal(2, new BreedGoal(this, 1.0D));
+		      this.goalSelector.addGoal(3, new TemptGoal(this, 1.25D, Ingredient.of(Items.WHEAT), false));
+		      this.goalSelector.addGoal(4, new FollowParentGoal(this, 1.25D));
+		      this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 1.0D));
+		      this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 6.0F));
+		      this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
+		   }
+
+	   public static AttributeSupplier.Builder createAttributes() {
+		      return Mob.createMobAttributes()
            
            .add(Attributes.MAX_HEALTH, 10000000000.0D)
            .add(Attributes.FOLLOW_RANGE, 400.0D)
@@ -97,70 +77,29 @@ protected SoundEvent getAmbientSound() {
   }
 
 @Override
-protected int getExperienceReward(PlayerEntity player) {
+protected int getExperienceReward(Player player) {
 	return player.experienceLevel = 100;
 }
 
-public IPacket<?> createSpawnPacket() {
-	return NetworkHooks.getEntitySpawningPacket(this);
-}
-public ActionResultType mobInteract(PlayerEntity p_230254_1_, Hand p_230254_2_) {
-    ItemStack itemstack = p_230254_1_.getItemInHand(p_230254_2_);
-    if (itemstack.getItem() == Items.BUCKET && !this.isBaby()) {
-       p_230254_1_.playSound(SoundEvents.COW_MILK, 1.0F, 1.0F);
-       ItemStack itemstack1 = DrinkHelper.createFilledResult(itemstack, p_230254_1_, Items.MILK_BUCKET.getDefaultInstance());
-       p_230254_1_.setItemInHand(p_230254_2_, itemstack1);
-       return ActionResultType.sidedSuccess(this.level.isClientSide);
+public InteractionResult mobInteract(Player p_28298_, InteractionHand p_28299_) {
+    ItemStack itemstack = p_28298_.getItemInHand(p_28299_);
+    if (itemstack.is(Items.BUCKET) && !this.isBaby()) {
+       p_28298_.playSound(SoundEvents.COW_MILK, 1.0F, 1.0F);
+       ItemStack itemstack1 = ItemUtils.createFilledResult(itemstack, p_28298_, Items.MILK_BUCKET.getDefaultInstance());
+       p_28298_.setItemInHand(p_28299_, itemstack1);
+       return InteractionResult.sidedSuccess(this.level.isClientSide);
     } else {
-       return super.mobInteract(p_230254_1_, p_230254_2_);
+       return super.mobInteract(p_28298_, p_28299_);
     }
 }
 @Override
-protected float getStandingEyeHeight(Pose p_213348_1_, EntitySize p_213348_2_) {
+protected float getStandingEyeHeight(Pose p_213348_1_, EntityDimensions p_213348_2_) {
     return this.isBaby() ? p_213348_2_.height * 0.95F : 1.3F;
  }
 
-@Nullable
-@Override
-public AgeableEntity getBreedOffspring(ServerWorld p_241840_1_, AgeableEntity p_241840_2_) {
-	return null;
-}
-
-@Override
-public void setDropChance(EquipmentSlotType type , float p_184642_2_) {
-	super.setDropChance(type, p_184642_2_);
-}
-public ActionResultType checkAndHandleImportantInteractions(PlayerEntity p_233661_1_, Hand p_233661_2_) {
-    ItemStack itemstack = p_233661_1_.getItemInHand(p_233661_2_);
-    if (itemstack.getItem() == Items.LEAD && this.canBeLeashed(p_233661_1_)) {
-       this.setLeashedTo(p_233661_1_, true);
-       itemstack.shrink(1);
-       return ActionResultType.sidedSuccess(this.level.isClientSide);
-    } else {
-       if (itemstack.getItem() == Items.NAME_TAG) {
-          ActionResultType actionresulttype = itemstack.interactLivingEntity(p_233661_1_, this, p_233661_2_);
-          if (actionresulttype.consumesAction()) {
-             return actionresulttype;
-          }
-       }
-
-       if (itemstack.getItem() instanceof pupEggs) {
-          if (this.level instanceof ServerWorld) {
-        	  pupEggs spawneggitem = (pupEggs)itemstack.getItem();
-             Optional<MobEntity> optional = spawneggitem.spawnOffspringFromSpawnEgg(p_233661_1_, this, (EntityType)this.getType(), (ServerWorld)this.level, this.position(), itemstack);
-             optional.ifPresent((p_233658_2_) -> {
-                this.onOffspringSpawnedFromEgg(p_233661_1_, p_233658_2_);
-             });
-             return optional.isPresent() ? ActionResultType.SUCCESS : ActionResultType.PASS;
-          } else {
-             return ActionResultType.CONSUME;
-          }
-       } else {
-          return ActionResultType.PASS;
-       }
-    }
+public PuhEntity getBreedOffspring(ServerLevel p_148890_, AgeableMob p_148891_) {
+    return this;
  }
-
 }
 
 /*	

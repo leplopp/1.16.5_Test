@@ -9,6 +9,7 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.MilkBucketItem;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.fmllegacy.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -95,20 +96,26 @@ public class Registeritems {
 	public static final RegistryObject<Item> BLOOD_LIQUID = ITEMS.register("blood_liquid",
 			() -> new Item(new Item.Properties().tab(pupmod.PUP_TAB_ITEMS).stacksTo(1)));
 	// Eggs
-	public static final RegistryObject<pupEggs> NIGGI_EGG = ITEMS.register("niggi_egg",
-			() -> new pupEggs(entitycreatortypes.NIGGI, 0x00000, 0x00000,
+	public static final RegistryObject<ForgeSpawnEggItem> NIGGI_EGG = ITEMS.register("niggi_egg",
+			() -> new ForgeSpawnEggItem(entitycreatortypes.NIGGI, 0x898989, 0xb4b289,
+					new Item.Properties().tab(pupmod.PUP_TAB_ITEMS).stacksTo(1)));
+	public static final RegistryObject<ForgeSpawnEggItem> DINGI_EGG = ITEMS.register("dingi_egg",
+			() -> new ForgeSpawnEggItem(entitycreatortypes.DINGI, 0x000000, 0x5a5a5a,
+					new Item.Properties().tab(pupmod.PUP_TAB_ITEMS).stacksTo(1)));
+	public static final RegistryObject<ForgeSpawnEggItem> GUMPALAN_BIG_EGG = ITEMS.register("gumpalanbig_egg",
+			() -> new ForgeSpawnEggItem(entitycreatortypes.GUMPALAN_BIG, 0xA901DB, 0x26d300,
+					new Item.Properties().tab(pupmod.PUP_TAB_ITEMS).stacksTo(1)));
+	public static final RegistryObject<ForgeSpawnEggItem> PUH_EGG = ITEMS.register("puh_egg",
+			() -> new ForgeSpawnEggItem(entitycreatortypes.PUH,  0x3c2601, 0x784a00,
+					new Item.Properties().tab(pupmod.PUP_TAB_ITEMS).stacksTo(99999)));
+	public static final RegistryObject<ForgeSpawnEggItem> RING_EGG = ITEMS.register("ringi_egg",
+			() -> new ForgeSpawnEggItem(entitycreatortypes.RINGENTITY, 0xdf0000, 0xe43535,
+					new Item.Properties().tab(pupmod.PUP_TAB_ITEMS).stacksTo(1)));
+	public static final RegistryObject<ForgeSpawnEggItem> PUPPIG_EGG = ITEMS.register("puppig_egg",
+			() -> new ForgeSpawnEggItem(entitycreatortypes.PUPPIG, 0xc75c84, 0xff6ca3,
 					new Item.Properties().tab(pupmod.PUP_TAB_ITEMS).stacksTo(1)));
 	/*public static final RegistryObject<pupEggs> TEST_EGG = ITEMS.register("test_egg",
 			() -> new pupEggs(entitycreatortypes.TEST_MODEL, 0x00000, 0x00000,
-					new Item.Properties().tab(pupmod.PUP_TAB_ITEMS).stacksTo(1)));
-	public static final RegistryObject<pupEggs> PUH_EGG = ITEMS.register("puh_egg",
-			() -> new pupEggs(entitycreatortypes.PUH, 0x00000, 0x00000,
-					new Item.Properties().tab(pupmod.PUP_TAB_ITEMS).stacksTo(1)));
-	public static final RegistryObject<pupEggs> PUPPIG_EGG = ITEMS.register("puppig_egg",
-			() -> new pupEggs(entitycreatortypes.PUPPIG, 0x00000, 0x00000,
-					new Item.Properties().tab(pupmod.PUP_TAB_ITEMS).stacksTo(1)));
-	public static final RegistryObject<pupEggs> GUMPALAN_BIG_EGG = ITEMS.register("gumpalanbig_egg",
-			() -> new pupEggs(entitycreatortypes.GUMPALAN_BIG, 0x00000, 0x00000,
 					new Item.Properties().tab(pupmod.PUP_TAB_ITEMS).stacksTo(1)));
 	public static final RegistryObject<pupEggs> GUMPALAN_EGG = ITEMS.register("gumpalan_egg",
 			() -> new pupEggs(entitycreatortypes.GUMPALAN, 0x00000, 0x00000,
@@ -116,9 +123,6 @@ public class Registeritems {
 	public static final RegistryObject<pupEggs> LLL_EGG = ITEMS.register("lll_egg",
 			() -> new pupEggs(entitycreatortypes.LLL, 0x00000, 0x00000,
 					new Item.Properties().tab(pupmod.PUP_TAB_ITEMS).stacksTo(1)));
-	public static final RegistryObject<pupEggs> RING_EGG = ITEMS.register("ringi_egg",
-			() -> new pupEggs(entitycreatortypes.RINGENTITY, 0x00000, 0x00000,
-					new Item.Properties().tab(pupmod.PUP_TAB_ITEMS).stacksTo(1)));*/
 	/*public static final RegistryObject<pupEggs> STOP_EGG = ITEMS.register("stop_egg",
 			() -> new pupEggs(entitycreatortypes.STOPI, 0x00000, 0x00000,
 					new Item.Properties().tab(pupmod.PUP_TAB_ITEMS).stacksTo(1)));**/

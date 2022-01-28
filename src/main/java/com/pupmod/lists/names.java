@@ -6,5 +6,5 @@ public class names {
 
 	
 	
-	"Schlomann = new entity"
+	// "Schlomann = new entity"
 }

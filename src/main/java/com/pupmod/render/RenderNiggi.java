@@ -1,11 +1,8 @@
 package com.pupmod.render;
 
-import javax.annotation.Nullable;
-import com.electronwill.nightconfig.core.io.CharsWrapper.Builder;
 import com.pupmod.pupmod;
 import com.pupmod.entitys.NiggiEntity;
 import com.pupmod.model.Model1;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;

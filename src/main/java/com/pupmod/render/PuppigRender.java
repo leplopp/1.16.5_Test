@@ -1,33 +1,22 @@
 package com.pupmod.render;
 
-import javax.annotation.Nullable;
-
 import com.pupmod.pupmod;
-import com.pupmod.entitys.PuhEntity;
 import com.pupmod.entitys.puppigEntity;
-
-import net.minecraft.client.renderer.entity.EntityRendererManager;
+import com.pupmod.model.puppig;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.entity.Entity;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
 
-public class PuppigRender extends MobRenderer<puppigEntity, com.pupmod.model.puppig>{
+public class PuppigRender<Type extends puppigEntity> extends MobRenderer<Type, puppig<Type>>{
 
-	private static final ResourceLocation TEXTURE = new ResourceLocation(pupmod.MODID, "textures/entity/puppig.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(pupmod.MODID, "textures/entity/puppig.png");	
 	
-	
-	
-	public PuppigRender(EntityRendererManager render) {
-	
-		super(render, new com.pupmod.model.puppig(), 6f);
+	public PuppigRender(Context render) {
+		super(render, new puppig<>(render.bakeLayer(puppig.LAYER_LOCATION)), 0.5f);
 	}
 
-
-    @Nullable
 	@Override
 	public ResourceLocation getTextureLocation(puppigEntity entity) {
 		return TEXTURE;
 	}
-
 }
-

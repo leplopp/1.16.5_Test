@@ -1,29 +1,20 @@
 package com.pupmod.render;
 
-import javax.annotation.Nullable;
-
 import com.pupmod.pupmod;
-import com.pupmod.entitys.NiggiEntity;
 import com.pupmod.entitys.PuhEntity;
-
-import net.minecraft.client.renderer.entity.EntityRendererManager;
+import com.pupmod.model.puh;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.entity.Entity;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.client.renderer.entity.EntityRendererProvider.Context;
 
-public class puhRender extends MobRenderer<PuhEntity, com.pupmod.model.puh>{
+public class puhRender<Type extends PuhEntity> extends MobRenderer<Type, puh<Type>>{
 
-	private static final ResourceLocation TEXTURE = new ResourceLocation(pupmod.MODID, "textures/entity/puh.png");
+	private static final ResourceLocation TEXTURE = new ResourceLocation(pupmod.MODID, "textures/entity/puh.png");	
 	
-	
-	
-	public puhRender(EntityRendererManager render) {
-	
-		super(render, new com.pupmod.model.puh(), 1.0f);
+	public puhRender(Context render) {
+		super(render, new puh<>(render.bakeLayer(puh.LAYER_LOCATION)), 0.5f);
 	}
 
-
-    @Nullable
 	@Override
 	public ResourceLocation getTextureLocation(PuhEntity entity) {
 		return TEXTURE;

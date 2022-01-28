@@ -2,43 +2,28 @@ package com.pupmod;
 
 import com.pupmod.entitys.NiggiEntity;
 import com.pupmod.entitys.PuhEntity;
+import com.pupmod.entitys.dingiEntity;
 import com.pupmod.entitys.entitycreatortypes;
 import com.pupmod.entitys.gumpalanBigEntity;
-import com.pupmod.entitys.gumpalanEntity;
-import com.pupmod.entitys.lllEntity;
 import com.pupmod.entitys.puppigEntity;
 import com.pupmod.entitys.ringEntity;
-import com.pupmod.entitys.stopEntity;
-import com.pupmod.entitys.testEntity;
-import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 
-//@Mod.EventBusSubscriber(modid = pupmod.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
+import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
+import net.minecraftforge.fml.common.Mod;
+
+@Mod.EventBusSubscriber(modid = pupmod.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class modSetup {
 
-	@SuppressWarnings("deprecation")
 	public static void init(final EntityAttributeCreationEvent event) { 
 		event.put(entitycreatortypes.NIGGI.get(), NiggiEntity.createAttributes().build());
+		event.put(entitycreatortypes.DINGI.get(), dingiEntity.createAttributes().build());
+		event.put(entitycreatortypes.GUMPALAN_BIG.get(), gumpalanBigEntity.createAttributes().build());
+		event.put(entitycreatortypes.PUH.get(), PuhEntity.createAttributes().build());
+		event.put(entitycreatortypes.RINGENTITY.get(), ringEntity.createAttributes().build());
+		event.put(entitycreatortypes.PUPPIG.get(), puppigEntity.createAttributes().build());
 		
-		/*DeferredWorkQueue.runLater(() -> {GlobalEntityTypeAttributes.put(entitycreatortypes.NIGGI.get(), NiggiEntity.setAttributes().build());});
-		DeferredWorkQueue.runLater(() -> {GlobalEntityTypeAttributes.put(entitycreatortypes.TEST_MODEL.get(), testEntity.setAttributes().build());});
-		DeferredWorkQueue.runLater(() -> {GlobalEntityTypeAttributes.put(entitycreatortypes.PUH.get(), PuhEntity.setAttributes().build());});
-		DeferredWorkQueue.runLater(() -> {GlobalEntityTypeAttributes.put(entitycreatortypes.PUPPIG.get(), puppigEntity.setAttributes().build());});
-		DeferredWorkQueue.runLater(() -> {GlobalEntityTypeAttributes.put(entitycreatortypes.GUMPALAN_BIG.get(), gumpalanBigEntity.setAttributes().build());});
-		DeferredWorkQueue.runLater(() -> {GlobalEntityTypeAttributes.put(entitycreatortypes.GUMPALAN.get(), gumpalanEntity.setAttributes().build());});
-		DeferredWorkQueue.runLater(() -> {GlobalEntityTypeAttributes.put(entitycreatortypes.LLL.get(), lllEntity.setAttributes().build());});
-		DeferredWorkQueue.runLater(() -> {GlobalEntityTypeAttributes.put(entitycreatortypes.RINGENTITY.get(), ringEntity.setAttributes().build());});
-		//DeferredWorkQueue.runLater(() -> {GlobalEntityTypeAttributes.put(entitycreatortypes.STOPI.get(), stopEntity.setAttributes().build());});
 		
-		/*  event.enqueueWork(() -> {
-              GlobalEntityTypeAttributes.put(entitycreatortypes.NIGGI.get(), NiggiEntity.setAttributes().build());
-              GlobalEntityTypeAttributes.put(entitycreatortypes.TEST_MODEL.get(), testEntity.setAttributes().build());
-              GlobalEntityTypeAttributes.put(entitycreatortypes.PUH.get(), PuhEntity.setAttributes().build());
-              GlobalEntityTypeAttributes.put(entitycreatortypes.PUPPIG.get(), puppigEntity.setAttributes().build());
-              GlobalEntityTypeAttributes.put(entitycreatortypes.GUMPALAN_BIG.get(), gumpalanBigEntity.setAttributes().build());
-              GlobalEntityTypeAttributes.put(entitycreatortypes.GUMPALAN.get(), gumpalanEntity.setAttributes().build());
-              GlobalEntityTypeAttributes.put(entitycreatortypes.LLL.get(), lllEntity.setAttributes().build());
-             // GlobalEntityTypeAttributes.put(entitycreatortypes.STOP.get(), stopEntity.prepareAttributes().build());
-		  });*/
+		
+	
 	 }
 }

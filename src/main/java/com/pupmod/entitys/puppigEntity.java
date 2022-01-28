@@ -1,62 +1,54 @@
 package com.pupmod.entitys;
 
-import javax.annotation.Nullable;
-
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.AgeableEntity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.ai.attributes.AttributeModifierMap;
-import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.entity.ai.goal.BreedGoal;
-import net.minecraft.entity.ai.goal.FollowParentGoal;
-import net.minecraft.entity.ai.goal.LookAtGoal;
-import net.minecraft.entity.ai.goal.LookRandomlyGoal;
-import net.minecraft.entity.ai.goal.PanicGoal;
-import net.minecraft.entity.ai.goal.RandomWalkingGoal;
-import net.minecraft.entity.ai.goal.SwimGoal;
-import net.minecraft.entity.ai.goal.TemptGoal;
-import net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal;
-import net.minecraft.entity.passive.AnimalEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.Items;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.SoundEvents;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
+import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.AgeableMob;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.ai.goal.BreedGoal;
+import net.minecraft.world.entity.ai.goal.FloatGoal;
+import net.minecraft.world.entity.ai.goal.FollowParentGoal;
+import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
+import net.minecraft.world.entity.ai.goal.PanicGoal;
+import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
+import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 import sound.soundregistry;
 
-public class puppigEntity extends AnimalEntity {
+public class puppigEntity extends Animal {
 
-	public puppigEntity(EntityType<? extends AnimalEntity> type, World worldIn) {
+public puppigEntity(EntityType<? extends Animal> type, Level worldIn) {
+		
 		super(type, worldIn);
-		
+	}	
+
+protected void registerGoals() {
+    this.goalSelector.addGoal(0, new FloatGoal(this));
+  // this.goalSelector.addGoal(1, new RandomWalkingGoal(this, 5D));
+    this.goalSelector.addGoal(2, new LookAtPlayerGoal(this, Player.class, 1000.0F));
+   // this.goalSelector.addGoal(3, new LookRandomlyGoal(this));	
+    this.goalSelector.addGoal(4, new PanicGoal(this, 20.0D));
+    this.goalSelector.addGoal(5, new BreedGoal(this, 100.0D));
+    this.goalSelector.addGoal(7, new FollowParentGoal(this, 10.25D));
+    this.goalSelector.addGoal(8, new WaterAvoidingRandomStrollGoal(this, 1.0D));
+ }
+
+	        //this.tasks.addTask(2, new EntityAIAttackOnCollide(this, EntityPlayer.class, 1.0D, false));
+	        //this.tasks.addTask(5, new EntityAIMoveTowardsRestriction(this, 1000000.0D));
+
+public static AttributeSupplier.Builder createAttributes() {
+    return Animal.createLivingAttributes()
+	           
+	           .add(Attributes.MAX_HEALTH, 1.0D)
+	           .add(Attributes.FOLLOW_RANGE, 400.0D)
+	           .add(Attributes.MOVEMENT_SPEED, (double)1.0F);      
 	}
-		
-		protected void registerGoals() {
-		      this.goalSelector.addGoal(0, new SwimGoal(this));
-		      this.goalSelector.addGoal(1, new RandomWalkingGoal(this, 0.8));
-		      this.goalSelector.addGoal(2, new LookAtGoal(this, PlayerEntity.class, 10.0F));
-		      this.goalSelector.addGoal(3, new LookRandomlyGoal(this));	
-		      this.goalSelector.addGoal(4, new PanicGoal(this, 20.0D));
-		      this.goalSelector.addGoal(5, new BreedGoal(this, 100.0D));
-		      this.goalSelector.addGoal(6, new TemptGoal(this, 10.25D, Ingredient.of(Items.WHEAT), false));
-		      this.goalSelector.addGoal(7, new FollowParentGoal(this, 100.25D));
-		      this.goalSelector.addGoal(8, new WaterAvoidingRandomWalkingGoal(this, 1.0D));
-		   }
-
-		public static AttributeModifierMap.MutableAttribute setAttributes() {
-			   return LivingEntity.createLivingAttributes()
-			           
-			           .add(Attributes.MAX_HEALTH, 10000000000000.0D)
-			           .add(Attributes.FOLLOW_RANGE, 400000.0D)
-			           .add(Attributes.MOVEMENT_SPEED, (double)0.2F);      
-			}
-
 		 protected SoundEvent getHurtSound(DamageSource p_184601_1_) {
 		    return soundregistry.HUNGERAXEL.get();
 		 }
@@ -73,15 +65,14 @@ public class puppigEntity extends AnimalEntity {
 		  }
 
 		@Override
-		protected int getExperienceReward(PlayerEntity player) {
+		protected int getExperienceReward(Player player) {
 			return player.experienceLevel = 1000;
 		}
-	    @Nullable
-	@Override
-	public AgeableEntity getBreedOffspring(ServerWorld p_241840_1_, AgeableEntity p_241840_2_) {
 
-		return null;
-	}
+		@Override
+		public AgeableMob getBreedOffspring(ServerLevel p_146743_, AgeableMob p_146744_) {
+			return null;
+		}
 }
 		
 /*		

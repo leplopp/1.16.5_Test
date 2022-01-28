@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import com.pupmod.blocks.registerblocks;
 import com.pupmod.entitys.entitycreatortypes;
 import com.pupmod.generate.featureinit;
+import com.pupmod.generate.biomes.pupBiomes;
 import com.pupmod.items.Registeritems;
 import com.pupmod.items.pupEggs;
 import net.minecraft.resources.ResourceLocation;
@@ -37,7 +38,7 @@ public class pupmod {
 		public ItemStack makeIcon() {return new ItemStack(registerblocks.PINK_BLOCK.get());}};
 			
 	public static final CreativeModeTab PUP_TAB_ITEMS = new CreativeModeTab("puptab_item") {
-		public ItemStack makeIcon() {return new ItemStack(Registeritems.BLACK_TEA.get());}};
+		public ItemStack makeIcon() {return new ItemStack(Registeritems.MAGIC_STICK.get());}};
 		
 	public pupmod() {
 		IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -48,6 +49,8 @@ public class pupmod {
 		
 		Registeritems.ITEMS.register(bus);
 		registerblocks.BLOCKS.register(bus);
+		
+		pupBiomes.register(bus);
 		
 		FMLJavaModLoadingContext.get().getModEventBus().addListener(modSetup::init);	
         FMLJavaModLoadingContext.get().getModEventBus().addListener(clientSetup::init);
@@ -64,12 +67,6 @@ public class pupmod {
 			event.getRegistry().register(
 					new BlockItem(block, new Item.Properties().tab(PUP_TAB)).setRegistryName(block.getRegistryName()));
 		});	}
-			
-	/*@SubscribeEvent
-	
-	public static void onRegisterEntities(final RegistryEvent.Register<EntityType<?>> event) {
-		pupEggs.initSpawnEggs();
-	}*/
 	
 	/*@SubscribeEvent
 	public static void RegisterFluids(final RegistryEvent.Register<Fluid> event) {

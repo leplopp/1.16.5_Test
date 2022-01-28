@@ -16,6 +16,8 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.BreedGoal;
 import net.minecraft.world.entity.ai.goal.EatBlockGoal;
 import net.minecraft.world.entity.ai.goal.FloatGoal;
+import net.minecraft.world.entity.ai.goal.FollowMobGoal;
+import net.minecraft.world.entity.ai.goal.FollowParentGoal;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.minecraft.world.entity.ai.goal.PanicGoal;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
@@ -39,6 +41,7 @@ public class NiggiEntity extends Monster  {
 	   protected void registerGoals() {
 		      this.goalSelector.addGoal(0, new FloatGoal(this));
 		     // this.goalSelector.addGoal(1, new RandomWalkingGoal(this, 2D));
+		      this.goalSelector.addGoal(7, new FollowMobGoal(this, 50D, 100, 100));
 		      this.goalSelector.addGoal(1, new PanicGoal(this, 2.0D));
 		      this.goalSelector.addGoal(1, new EatBlockGoal(this));
 		      this.goalSelector.addGoal(2, new LookAtPlayerGoal(this, Player.class, 8.0F));	
